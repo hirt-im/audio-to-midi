@@ -6,7 +6,7 @@ export default function PlayAudio(props){
 
     function handleClick(){
         if(!props.audio){return;}
-        
+
         if (playPause === 'play'){
           props.audio.play();
           setPlayPause('pause');
