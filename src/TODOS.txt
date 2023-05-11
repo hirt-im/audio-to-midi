@@ -1,0 +1,4 @@
+1. Upload audio file or paste URL
+2. Use Magenta to transcribeFromAudioFile / transcribeFromAudioURL
+
+3. Display notes / generate MIDI file and display that 
