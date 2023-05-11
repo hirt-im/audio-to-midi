@@ -15,7 +15,7 @@ export default function PlayBackRate(props){
     return(
         <>
             <div>{percent}%</div>
-            <input type="range" min="0" max="1000" value={percent * 5} class="slider" onChange={handleChange}/>
+            <input type="range" min="125" max="1000" value={percent * 5} class="slider" onChange={handleChange}/>
         </>
     );
 }
