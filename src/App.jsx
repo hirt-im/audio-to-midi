@@ -6,13 +6,14 @@ import PlayBackRate from './components/PlaybackRate';
 
 function App() {
   const [audio, setAudio] = useState();
+  const [rate, setRate] = useState(1);
 
   return (
     <>
       <h1>Audio to MIDI</h1>
       <PlayAudio audio={audio} />
       <LoadAudio setAudio={setAudio} />
-      <PlayBackRate audio={audio} />
+      <PlayBackRate audio={audio} setRate={setRate} />
     </>
   )
 }
