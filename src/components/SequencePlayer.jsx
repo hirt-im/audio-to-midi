@@ -12,7 +12,7 @@ export default function SequencePlayer(props){
                                         props.vis.redraw(note, true);
                                     }
                                 });
-
+    
     function handleClick(){
 
         if (playPause === 'play'){

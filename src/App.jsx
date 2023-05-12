@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import PlayAudio from './components/PlayAudio';
 import PlayBackRate from './components/PlaybackRate';
 // import Magenta from './components/magenta';
-import Visualizer from './components/visualizer';
 import { WaterfallSVGVisualizer } from '@magenta/music/es6';
 import SequencePlayer from './components/SequencePlayer';
 
@@ -18,8 +17,8 @@ function App() {
   function visualize(){
     let newVis = new WaterfallSVGVisualizer(
             noteSequence, 
-            document.getElementById('visualizer'),
-            {showOnlyOctavesUsed: true}
+            document.getElementById('visualizer')
+            // {showOnlyOctavesUsed: true}
     );
     console.log(newVis);
     setVis(newVis);
@@ -28,6 +27,7 @@ function App() {
   useEffect(()=>{
     if(noteSequence === null){return;}
     visualize();
+    console.log('here');
   }, [noteSequence])
 
   return (
