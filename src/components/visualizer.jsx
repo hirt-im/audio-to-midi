@@ -1,11 +1,15 @@
+import { WaterfallSVGVisualizer } from "@magenta/music/es6";
 import { useRef } from "react";
+
+const container = <div></div>;
 
 export default function Visualizer(props){
     if(props.ns === undefined){return;}
 
-    const canvas = useRef();
-    // const vis = new Visualizer(props.ns, canvas)
+
+    const vis = new WaterfallSVGVisualizer(props.ns, container)
+    console.log(vis);
     return(
-        <canvas ref={canvas}></canvas>
+        {container}
     );
 }
