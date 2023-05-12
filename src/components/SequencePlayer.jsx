@@ -2,16 +2,16 @@ import { SoundFontPlayer, NoteSequence } from '@magenta/music/es6';
 import { useState, useEffect } from 'react'
 
 
-export default function PlayerM(props){
+export default function SequencePlayer(props){
     const [playPause, setPlayPause] = useState('play');
 
-    let p = new SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', undefined,
-    undefined,undefined,
-    {
-        run: (note = NoteSequence.Note) => {
-            props.vis.redraw(note, true);
-        }
-    });
+    let p = new SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
+                                undefined,undefined,undefined,
+                                {
+                                    run: (note = NoteSequence.Note) => {
+                                        props.vis.redraw(note, true);
+                                    }
+                                });
 
     function handleClick(){
 

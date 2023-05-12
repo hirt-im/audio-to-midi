@@ -6,7 +6,7 @@ import PlayBackRate from './components/PlaybackRate';
 // import Magenta from './components/magenta';
 import Visualizer from './components/visualizer';
 import { WaterfallSVGVisualizer } from '@magenta/music/es6';
-import PlayerM from './components/Player';
+import SequencePlayer from './components/SequencePlayer';
 
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
     <>
       <h1>Audio to MIDI</h1>
       {/* <PlayAudio audio={audio} /> */}
-      <PlayerM vis={vis} ns={noteSequence}/>
+      <SequencePlayer vis={vis} ns={noteSequence}/>
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <PlayBackRate audio={audio} setRate={setRate} />
       {/* <Visualizer ns={noteSequence} /> */}
