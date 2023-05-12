@@ -14,6 +14,7 @@ function App() {
   const [rate, setRate] = useState(1);
   const [noteSequence, setNoteSequence] = useState(null);
   const [vis, setVis] = useState();
+  const [blackKeys, setBlackKeys] = useState();
 
 
   let whiteWidth = Math.round(window.innerWidth / 65);
@@ -37,14 +38,15 @@ function App() {
     // change color of black keys
     // Issue: they turn back to white color key after being redrawn by visualizer :/ 
     let rects = newVis.svg.children;
-    // let blackKeys = [];
+    let blackKeys = [];
     console.log(newVis.svg.children);
     for (let i = 0; i < rects.length; i++){
       console.log(rects[i].attributes[4].value);
       let width = rects[i].attributes[4].value;
       if (width == blackWidth){
         rects[i].attributes.fill.value = (BLACK_KEY_COLOR);
-        // blackKeys.push(rects[i]);
+        blackKeys.push(rects[i]);
+        setBlackKeys(blackKeys);
     }
 
 
@@ -68,7 +70,7 @@ function App() {
     <>
       <h1>Audio to MIDI</h1>
       {/* <PlayAudio audio={audio} /> */}
-      <SequencePlayer vis={vis} ns={noteSequence}/>
+      <SequencePlayer vis={vis} ns={noteSequence} blackKeys={blackKeys}/>
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <PlayBackRate audio={audio} setRate={setRate} />
       {/* <Visualizer ns={noteSequence} /> */}

@@ -9,9 +9,16 @@ export default function SequencePlayer(props){
                                 undefined,undefined,undefined,
                                 {
                                     run: (note = NoteSequence.Note) => {
+                                      if(note.pitch > 58){
+                                        props.vis.config = {noteRGB: '233, 111, 199'};
+                                      }
+
+
                                         props.vis.redraw(note, true);
                                         console.log(props.vis);
-                                        console.log(note);
+                                        console.log(note.pitch);
+
+                                        
                                         // if note is sharp, make fill color BLACK_KEY
                                         // then redraw
                                         // then turn fill back to WHITE_KEY
