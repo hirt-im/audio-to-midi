@@ -16,7 +16,8 @@ function App() {
   const [vis, setVis] = useState();
 
   function visualize(){
-    let newVis = new WaterfallSVGVisualizer(noteSequence, document.getElementById('visualizer'))
+    let newVis = new WaterfallSVGVisualizer(noteSequence, document.getElementById('visualizer'));
+    newVis.activeNoteRGB = ('50,200,199');
     setVis(newVis);
   }
 

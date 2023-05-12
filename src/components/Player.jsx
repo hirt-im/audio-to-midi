@@ -1,11 +1,13 @@
-import { Player } from '@magenta/music/es6';
+import { SoundFontPlayer } from '@magenta/music/es6';
 import { useState, useEffect } from 'react'
 
 
 export default function PlayerM(props){
     const [playPause, setPlayPause] = useState('play');
 
-    let p = new Player();
+    let p = new SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus');
+
+
 
  
     function handleClick(){
@@ -13,7 +15,7 @@ export default function PlayerM(props){
 
         if (playPause === 'play'){
           p.start(props.vis.noteSequence);
-          console.log(props.vis);
+          console.log(p);
           setPlayPause('pause');
         }
     
