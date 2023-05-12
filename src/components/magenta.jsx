@@ -4,10 +4,10 @@ import * as mm from "@magenta/music/es6";
 
 export default function Magenta(props){
 
-    let OAF = new mm.OnsetsAndFrames("https://storage.googleapis.com/magentadata/js/checkpoints/transcription/onsets_frames_uni");
-    let notes = OAF.transcribeFromAudioFile(props.audio);
+    // let OAF = new mm.OnsetsAndFrames("https://storage.googleapis.com/magentadata/js/checkpoints/transcription/onsets_frames_uni");
+    // let notes = OAF.transcribeFromAudioFile(props.blob);
 
-    console.log(props.audio);
+    // console.log(props.blob);
 
     let player = new mm.Player();
     let TWINKLE_TWINKLE = {
