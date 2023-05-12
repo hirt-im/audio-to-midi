@@ -8,7 +8,7 @@ export default function LoadAudio(props){
   const OAF = new mm.OnsetsAndFrames("https://storage.googleapis.com/magentadata/js/checkpoints/transcription/onsets_frames_uni");
   OAF.initialize();
 
-  function addFile(e){
+  function loadFromFile(e){
     console.log(e.target.files[0]);
     let src = URL.createObjectURL(e.target.files[0]);
     let a = new Audio(src);
@@ -19,11 +19,31 @@ export default function LoadAudio(props){
       console.log(ns);
     })
   }
+
+  function loadFromURL(e){
+    let url = document.getElementById('URL').value;
+
+    OAF.transcribeFromAudioURL(url).then((ns) => {
+      props.setNoteSequence(ns);
+      console.log(ns);
+    })
+
+    e.preventDefault();
+    }
+  
   
     return (
+      <>
         <div>
-          <input type="file" onChange={addFile}/>
+          <input type="file" onChange={loadFromFile}/>
         </div>
+
+        <form>
+            <input id='URL' type='text' placeholder='Enter URL' />
+            <input type="submit" onClick={loadFromURL} />
+        </form>
+      </>
+      
       );
 }
 

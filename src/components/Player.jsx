@@ -7,11 +7,7 @@ export default function PlayerM(props){
 
     let p = new SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus');
 
-
-
- 
     function handleClick(){
-        // if(!props.vis){return;}
 
         if (playPause === 'play'){
           p.start(props.vis.noteSequence);
@@ -22,6 +18,7 @@ export default function PlayerM(props){
         else {
           p.stop();
           setPlayPause('play');
+          console.log('pause');
         }
     }
 

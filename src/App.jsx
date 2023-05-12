@@ -34,7 +34,7 @@ function App() {
     <>
       <h1>Audio to MIDI</h1>
       {/* <PlayAudio audio={audio} /> */}
-      <PlayerM vis={vis}/>
+      <PlayerM vis={vis} ns={noteSequence}/>
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <PlayBackRate audio={audio} setRate={setRate} />
       {/* <Visualizer ns={noteSequence} /> */}
