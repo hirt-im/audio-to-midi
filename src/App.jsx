@@ -15,9 +15,7 @@ function App() {
     <>
       <h1>Audio to MIDI</h1>
       <PlayAudio audio={audio} />
-      <LoadAudio setAudio={setAudio} 
-                 setNoteSequence={setNoteSequence} 
-      />
+      <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <PlayBackRate audio={audio} setRate={setRate} />
       {/* <Magenta /> */}
     </>
