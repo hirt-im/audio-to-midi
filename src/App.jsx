@@ -17,7 +17,11 @@ function App() {
   function visualize(){
     let newVis = new WaterfallSVGVisualizer(
             noteSequence, 
-            document.getElementById('visualizer')
+            document.getElementById('visualizer'),
+            {
+              activeNoteRGB: '255, 215, 18',
+              noteHeight: 50
+            }
             // {showOnlyOctavesUsed: true}
     );
     console.log(newVis);
