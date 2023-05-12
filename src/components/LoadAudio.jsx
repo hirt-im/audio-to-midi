@@ -23,6 +23,7 @@ export default function LoadAudio(props){
   function loadFromURL(e){
     let url = document.getElementById('URL').value;
 
+    //this doesn't work
     OAF.transcribeFromAudioURL(url).then((ns) => {
       props.setNoteSequence(ns);
       console.log(ns);
@@ -34,10 +35,12 @@ export default function LoadAudio(props){
   
     return (
       <>
+      {/* from File */}
         <div>
           <input type="file" onChange={loadFromFile}/>
         </div>
 
+      {/* from URL */}
         <form>
             <input id='URL' type='text' placeholder='Enter URL' />
             <input type="submit" onClick={loadFromURL} />
