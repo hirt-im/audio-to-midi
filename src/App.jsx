@@ -20,7 +20,9 @@ function App() {
             document.getElementById('visualizer'),
             {
               activeNoteRGB: '255, 215, 18',
-              noteHeight: 50
+              noteHeight: 50,
+              pixelsPerTimeStep: 200,
+              noteSpacing: 50
             }
             // {showOnlyOctavesUsed: true}
     );
