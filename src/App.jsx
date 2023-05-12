@@ -3,7 +3,8 @@ import './App.css'
 import { useState } from 'react'
 import PlayAudio from './components/PlayAudio';
 import PlayBackRate from './components/PlaybackRate';
-import Magenta from './components/magenta';
+// import Magenta from './components/magenta';
+import Visualizer from './components/visualizer';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <PlayAudio audio={audio} />
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <PlayBackRate audio={audio} setRate={setRate} />
+      <Visualizer ns={noteSequence} />
       {/* <Magenta /> */}
     </>
   )
