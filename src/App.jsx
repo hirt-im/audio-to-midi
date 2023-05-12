@@ -8,16 +8,18 @@ import Magenta from './components/magenta';
 
 function App() {
   const [audio, setAudio] = useState();
-  const [blob, setBlob] = useState();
   const [rate, setRate] = useState(1);
+  const [noteSequence, setNoteSequence] = useState();
 
   return (
     <>
       <h1>Audio to MIDI</h1>
       <PlayAudio audio={audio} />
-      <LoadAudio setAudio={setAudio} setBlob={setBlob} />
+      <LoadAudio setAudio={setAudio} 
+                 setNoteSequence={setNoteSequence} 
+      />
       <PlayBackRate audio={audio} setRate={setRate} />
-      <Magenta blob={blob} />
+      {/* <Magenta /> */}
     </>
   )
 }
