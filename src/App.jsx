@@ -16,7 +16,7 @@ function App() {
       <PlayAudio audio={audio} />
       <LoadAudio setAudio={setAudio} />
       <PlayBackRate audio={audio} setRate={setRate} />
-      <Magenta />
+      <Magenta audio={audio} />
     </>
   )
 }
