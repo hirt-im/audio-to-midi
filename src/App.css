@@ -43,4 +43,11 @@
 
 #visualizer{
   height: 500px;
+  background-color: black;
+
 }
+
+rect.note (min-width: 1px){
+  fill:aqua;
+}
+

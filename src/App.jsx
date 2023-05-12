@@ -7,6 +7,7 @@ import PlayBackRate from './components/PlaybackRate';
 import { WaterfallSVGVisualizer } from '@magenta/music/es6';
 import SequencePlayer from './components/SequencePlayer';
 
+const BLACK_KEY_COLOR = 'rgba(0, 204, 197, 0.79)';
 
 function App() {
   const [audio, setAudio] = useState();
@@ -14,6 +15,10 @@ function App() {
   const [noteSequence, setNoteSequence] = useState(null);
   const [vis, setVis] = useState();
 
+
+  let whiteWidth = Math.round(window.innerWidth / 65);
+  let blackWidth = Math.round(whiteWidth * (5 / 9));
+  console.log(whiteWidth, blackWidth, 'here');
   function visualize(){
     let newVis = new WaterfallSVGVisualizer(
             noteSequence, 
@@ -22,13 +27,31 @@ function App() {
               activeNoteRGB: '255, 215, 18',
               noteHeight: 50,
               pixelsPerTimeStep: 200,
-              noteSpacing: 50
+              // noteSpacing: 50,
+              whiteNoteWidth: whiteWidth,
+              blackNoteWidth: blackWidth
             }
             // {showOnlyOctavesUsed: true}
     );
-    console.log(newVis);
+
+    // change color of black keys
+    let rects = newVis.svg.children;
+    console.log(newVis.svg.children);
+    for (let i = 0; i < rects.length; i++){
+      console.log(rects[i].attributes[4].value);
+      let width = rects[i].attributes[4].value;
+      if (width == blackWidth){
+        rects[i].attributes.fill.value = (BLACK_KEY_COLOR);
+      }
+    }
+
+
+
+
+
     setVis(newVis);
   }
+
 
   useEffect(()=>{
     if(noteSequence === null){return;}
