@@ -16,8 +16,12 @@ function App() {
   const [vis, setVis] = useState();
 
   function visualize(){
-    let newVis = new WaterfallSVGVisualizer(noteSequence, document.getElementById('visualizer'));
-    newVis.activeNoteRGB = ('50,200,199');
+    let newVis = new WaterfallSVGVisualizer(
+            noteSequence, 
+            document.getElementById('visualizer'),
+            {showOnlyOctavesUsed: true}
+    );
+    console.log(newVis);
     setVis(newVis);
   }
 

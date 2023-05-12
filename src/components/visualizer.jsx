@@ -8,6 +8,7 @@ export default function Visualizer(props){
 
 
     const vis = new WaterfallSVGVisualizer(props.ns, document.getElementById('canvas'))
+    
     console.log(vis);
     return(
         vis
