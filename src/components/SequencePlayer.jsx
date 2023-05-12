@@ -7,7 +7,23 @@ const SHARP_NOTES = [70,73,75,78,80,82,85,87,90,92,94,97,99,102,104,106,
 
 const WHITE_KEY_FILL = '8, 41, 64';
 const BLACK_KEY_FILL = '0, 204, 197';
+const BLACK_ACTIVE = '235, 171, 52';
+const WHITE_ACTIVE = '255, 215, 18';
 
+const BLACK_KEY_COLOR = 'rgba(0, 204, 197, 0.79)';
+let whiteWidth = Math.round(window.innerWidth / 65);
+  let blackWidth = Math.round(whiteWidth * (5 / 9));
+
+function colorBlackKeys(vis){
+  let rects = vis.svg.children;
+  for (let i = 0; i < rects.length; i++){
+    console.log(rects[i].attributes[4].value);
+    let width = rects[i].attributes[4].value;
+    if (width == blackWidth){
+      rects[i].attributes.fill.value = (BLACK_KEY_COLOR);
+  }
+}
+}
 
 export default function SequencePlayer(props){
     const [playPause, setPlayPause] = useState('play');
@@ -16,13 +32,14 @@ export default function SequencePlayer(props){
                                 undefined,undefined,undefined,
                                 {
                                     run: (note = NoteSequence.Note) => {
-                                      if(SHARP_NOTES.includes(note.pitch)){
-                                        props.vis.config.noteRGB = BLACK_KEY_FILL;
-                                      }
+                                      // if(SHARP_NOTES.includes(note.pitch)){
+                                      //   props.vis.config.activeNoteRGB = BLACK_ACTIVE;
+                                      // }
                                       
-                                      else {
-                                        props.vis.config.noteRGB = WHITE_KEY_FILL; 
-                                      }
+                                      // else {
+                                      //   props.vis.config.noteRGB = WHITE_ACTIVE; 
+                                      // }
+                                      colorBlackKeys(props.vis)
 
                                       props.vis.redraw(note, true);
 
@@ -35,12 +52,11 @@ export default function SequencePlayer(props){
                                         console.log(SHARP_NOTES.includes(note.pitch), props.vis.config.noteRGB);
 
                                         
-                                        // if note is sharp, make fill color BLACK_KEY
-                                        // then redraw
-                                        // then turn fill back to WHITE_KEY
+                                        //OHHHHHHH it redraws the entire sequence every time, thats why
+                                        // lmaoooooooo
                                     }
                                 });
-    p.setTempo(55);
+    // p.setTempo(55);
     
     function handleClick(){
 

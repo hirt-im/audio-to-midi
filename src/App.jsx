@@ -8,6 +8,8 @@ import { WaterfallSVGVisualizer } from '@magenta/music/es6';
 import SequencePlayer from './components/SequencePlayer';
 
 const BLACK_KEY_COLOR = 'rgba(0, 204, 197, 0.79)';
+const WHITE_KEY_COLOR = '181, 248, 255';
+const ACTIVE_KEY_COLOR = '255, 215, 18';
 
 function App() {
   const [audio, setAudio] = useState();
@@ -24,7 +26,8 @@ function App() {
             noteSequence, 
             document.getElementById('visualizer'),
             {
-              activeNoteRGB: '255, 215, 18',
+              noteRGB: WHITE_KEY_COLOR,
+              activeNoteRGB: ACTIVE_KEY_COLOR,
               noteHeight: 50,
               pixelsPerTimeStep: 200,
               // noteSpacing: 50,
