@@ -6,15 +6,18 @@ import PlayBackRate from './components/PlaybackRate';
 // import Magenta from './components/magenta';
 import Visualizer from './components/visualizer';
 import { WaterfallSVGVisualizer } from '@magenta/music/es6';
+import PlayerM from './components/Player';
 
 
 function App() {
   const [audio, setAudio] = useState();
   const [rate, setRate] = useState(1);
   const [noteSequence, setNoteSequence] = useState(null);
+  const [vis, setVis] = useState();
 
   function visualize(){
-    let vis = new WaterfallSVGVisualizer(noteSequence, document.getElementById('visualizer'))
+    let newVis = new WaterfallSVGVisualizer(noteSequence, document.getElementById('visualizer'))
+    setVis(newVis);
   }
 
   useEffect(()=>{
@@ -25,7 +28,8 @@ function App() {
   return (
     <>
       <h1>Audio to MIDI</h1>
-      <PlayAudio audio={audio} />
+      {/* <PlayAudio audio={audio} /> */}
+      <PlayerM vis={vis}/>
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <PlayBackRate audio={audio} setRate={setRate} />
       {/* <Visualizer ns={noteSequence} /> */}
