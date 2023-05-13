@@ -42,6 +42,15 @@ export default function SequencePlayer(props){
                                       colorBlackKeys(props.vis)
 
                                       props.vis.redraw(note, true);
+                                      // if(!SHARP_NOTES.includes(note.pitch)){
+                                      //   colorBlackKeys(props.vis)
+                                      // }
+                                      colorBlackKeys(props.vis)
+
+                                      // you would have to color all black keys except the active ones
+                                      // good luck
+
+
 
                                       
                                       
