@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import PlayBackRate from './components/PlaybackRate';
 import { WaterfallSVGVisualizer, NoteSequence, SoundFontPlayer } from '@magenta/music/es6';
 import SequencePlayer from './components/SequencePlayer';
-import colorBlackKeys, { classifySharps } from './components/colorBlackKeys';
+import colorBlackKeys from './components/colorBlackKeys';
+import classifySharps from './components/classifySharps';
 
 
 
@@ -36,14 +37,14 @@ function App() {
   const [noteSequence, setNoteSequence] = useState(null);
   const [vis, setVis] = useState();
 
-
+  let visualizer;
   function visualize(){
-    let visualizer = new WaterfallSVGVisualizer(
+    visualizer = new WaterfallSVGVisualizer(
             noteSequence, 
             document.getElementById('visualizer'),
             {
               noteRGB: WHITE_KEY_COLOR,
-              // activeNoteRGB: ACTIVE_KEY_COLOR,
+              activeNoteRGB: ACTIVE_KEY_COLOR,
               noteHeight: 50,
               pixelsPerTimeStep: 200,
               noteSpacing: 10,
@@ -51,7 +52,6 @@ function App() {
               blackNoteWidth: BLACK_WIDTH
             }
     );
-    // colorBlackKeys(visualizer);
     classifySharps(visualizer);
     setVis(visualizer);
   }
@@ -63,48 +63,21 @@ function App() {
 
 
 
-  const p = new SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
+  const player = new SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
                                 undefined,undefined,undefined,
                                 {
-                                    run: (note = NoteSequence.Note) => {
-                                      // if(SHARP_NOTES.includes(note.pitch)){
-                                      //   props.vis.config.activeNoteRGB = BLACK_ACTIVE;
-                                      // }
-                                      
-                                      // else {
-                                      //   props.vis.config.noteRGB = WHITE_ACTIVE; 
-                                      // }
-                                      // colorBlackKeys(vis)
-
-                                      vis.redraw(note, true);
-                                      // if(!SHARP_NOTES.includes(note.pitch)){
-                                      //   colorBlackKeys(props.vis)
-                                      // }
-                                      // colorBlackKeys(vis)
-
-                                      // you would have to color all black keys except the active ones
-                                      // good luck
-
-
-                                        // console.log(props.vis);
-                                        // console.log(SHARP_NOTES.includes(note.pitch), props.vis.config.noteRGB);
-
-                                        
-                                        //OHHHHHHH it redraws the entire sequence every time, thats why
-                                        // lmaoooooooo
-                                    }
+                                  run: (note = NoteSequence.Note) => {
+                                    vis.redraw(note, true);
+                                    console.log(note);
+                                  }
                                 });
-
-
-
-
 
 
 
   return (
     <>
       <h1>Audio to MIDI</h1>
-      <SequencePlayer vis={vis} ns={noteSequence} player={p}/>
+      <SequencePlayer vis={vis} ns={noteSequence} player={player}/>
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <PlayBackRate audio={audio} setRate={setRate} />
       <div id='visualizer'></div>

@@ -49,13 +49,14 @@
 
 rect.note{
   rx: 4px;
+}
+rect.note:not(.active){
   fill: white;
   stroke:black;
-}
+} 
 
-rect.note.sharp{
+rect.note.sharp:not(.active){
   fill: black;
   stroke: white;
 }
 
-/* // when drawing visualizer, add .sharp class to sharp notes  */
