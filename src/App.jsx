@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import PlayBackRate from './components/PlaybackRate';
 import { WaterfallSVGVisualizer, NoteSequence, SoundFontPlayer } from '@magenta/music/es6';
 import SequencePlayer from './components/SequencePlayer';
-import colorBlackKeys from './components/colorBlackKeys';
+import colorBlackKeys, { classifySharps } from './components/colorBlackKeys';
 
 
 
@@ -43,7 +43,7 @@ function App() {
             document.getElementById('visualizer'),
             {
               noteRGB: WHITE_KEY_COLOR,
-              activeNoteRGB: ACTIVE_KEY_COLOR,
+              // activeNoteRGB: ACTIVE_KEY_COLOR,
               noteHeight: 50,
               pixelsPerTimeStep: 200,
               noteSpacing: 10,
@@ -51,7 +51,8 @@ function App() {
               blackNoteWidth: BLACK_WIDTH
             }
     );
-    colorBlackKeys(visualizer);
+    // colorBlackKeys(visualizer);
+    classifySharps(visualizer);
     setVis(visualizer);
   }
 
@@ -73,13 +74,13 @@ function App() {
                                       // else {
                                       //   props.vis.config.noteRGB = WHITE_ACTIVE; 
                                       // }
-                                      colorBlackKeys(vis)
+                                      // colorBlackKeys(vis)
 
                                       vis.redraw(note, true);
                                       // if(!SHARP_NOTES.includes(note.pitch)){
                                       //   colorBlackKeys(props.vis)
                                       // }
-                                      colorBlackKeys(vis)
+                                      // colorBlackKeys(vis)
 
                                       // you would have to color all black keys except the active ones
                                       // good luck

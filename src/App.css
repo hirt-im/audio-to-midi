@@ -43,8 +43,19 @@
 
 #visualizer{
   height: 500px;
-  background-color: black;
+  background-color: rgb(10, 10, 10);
 
 }
 
+rect.note{
+  rx: 4px;
+  fill: white;
+  stroke:black;
+}
 
+rect.note.sharp{
+  fill: black;
+  stroke: white;
+}
+
+/* // when drawing visualizer, add .sharp class to sharp notes  */
