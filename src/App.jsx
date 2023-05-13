@@ -8,7 +8,7 @@ import colorBlackKeys from './components/colorBlackKeys';
 
 
 
-const BLACK_KEY_COLOR = 'rgba(0, 204, 197, 0.79)';
+// const BLACK_KEY_COLOR = 'rgba(0, 204, 197, 0.79)';
 const WHITE_KEY_COLOR = '195, 219, 222';
 const ACTIVE_KEY_COLOR = '255, 215, 18';
 
@@ -51,7 +51,7 @@ function App() {
               blackNoteWidth: BLACK_WIDTH
             }
     );
-    colorBlackKeys(visualizer)
+    colorBlackKeys(visualizer);
     setVis(visualizer);
   }
 
