@@ -17,7 +17,7 @@ let whiteWidth = Math.round(window.innerWidth / 65);
 function colorBlackKeys(vis){
   let rects = vis.svg.children;
   for (let i = 0; i < rects.length; i++){
-    console.log(rects[i].attributes[4].value);
+    // console.log(rects[i].attributes[4].value);
     let width = rects[i].attributes[4].value;
     if (width == blackWidth){
       rects[i].attributes.fill.value = (BLACK_KEY_COLOR);
@@ -28,58 +28,68 @@ function colorBlackKeys(vis){
 export default function SequencePlayer(props){
     const [playPause, setPlayPause] = useState('play');
 
-    let p = new SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
-                                undefined,undefined,undefined,
-                                {
-                                    run: (note = NoteSequence.Note) => {
-                                      // if(SHARP_NOTES.includes(note.pitch)){
-                                      //   props.vis.config.activeNoteRGB = BLACK_ACTIVE;
-                                      // }
+    // let p = new SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
+    //                             undefined,undefined,undefined,
+    //                             {
+    //                                 run: (note = NoteSequence.Note) => {
+    //                                   // if(SHARP_NOTES.includes(note.pitch)){
+    //                                   //   props.vis.config.activeNoteRGB = BLACK_ACTIVE;
+    //                                   // }
                                       
-                                      // else {
-                                      //   props.vis.config.noteRGB = WHITE_ACTIVE; 
-                                      // }
-                                      colorBlackKeys(props.vis)
+    //                                   // else {
+    //                                   //   props.vis.config.noteRGB = WHITE_ACTIVE; 
+    //                                   // }
+    //                                   colorBlackKeys(props.vis)
 
-                                      props.vis.redraw(note, true);
-                                      // if(!SHARP_NOTES.includes(note.pitch)){
-                                      //   colorBlackKeys(props.vis)
-                                      // }
-                                      colorBlackKeys(props.vis)
+    //                                   props.vis.redraw(note, true);
+    //                                   // if(!SHARP_NOTES.includes(note.pitch)){
+    //                                   //   colorBlackKeys(props.vis)
+    //                                   // }
+    //                                   colorBlackKeys(props.vis)
 
-                                      // you would have to color all black keys except the active ones
-                                      // good luck
-
-
-
-                                      
-                                      
+    //                                   // you would have to color all black keys except the active ones
+    //                                   // good luck
 
 
-
-                                        console.log(props.vis);
-                                        console.log(SHARP_NOTES.includes(note.pitch), props.vis.config.noteRGB);
+    //                                     console.log(props.vis);
+    //                                     console.log(SHARP_NOTES.includes(note.pitch), props.vis.config.noteRGB);
 
                                         
-                                        //OHHHHHHH it redraws the entire sequence every time, thats why
-                                        // lmaoooooooo
-                                    }
-                                });
+    //                                     //OHHHHHHH it redraws the entire sequence every time, thats why
+    //                                     // lmaoooooooo
+    //                                 }
+    //                             });
     // p.setTempo(55);
     
     function handleClick(){
 
-        if (playPause === 'play'){
-          p.start(props.vis.noteSequence);
-          console.log(p);
-          setPlayPause('pause');
-        }
+      let state = props.player.getPlayState();
+      console.log(state);
+      if(state === 'stopped'){
+        props.player.start(props.vis.noteSequence);
+      }
+      else if (state === 'paused'){
+        props.player.resume();
+      }
+      else{
+        props.player.pause();
+      }
+
+        // if (playPause === 'play'){
+        //   props.player.start(props.vis.noteSequence);
+        //   // console.log(p.getPlayState(), 'playstate');
+
+        //   // console.log(p);
+        //   setPlayPause('pause');
+        // }
     
-        else {
-          p.stop();
-          setPlayPause('play');
-          console.log('pause');
-        }
+        // else {
+        //   // console.log(p.getPlayState(), 'playstate');
+
+        //   props.player.pause();
+        //   setPlayPause('play');
+        //   console.log('pause');
+        // }
     }
 
     return (
@@ -88,3 +98,6 @@ export default function SequencePlayer(props){
         </div>
       );
 }
+
+
+export {colorBlackKeys}
