@@ -6,6 +6,7 @@ import { WaterfallSVGVisualizer, NoteSequence, SoundFontPlayer } from '@magenta/
 import SequencePlayer from './components/SequencePlayer';
 import colorBlackKeys from './components/colorBlackKeys';
 import classifySharps from './components/classifySharps';
+import TempoControl from './components/TempoControl';
 
 
 
@@ -68,7 +69,7 @@ function App() {
                                 {
                                   run: (note = NoteSequence.Note) => {
                                     vis.redraw(note, true);
-                                    console.log(note);
+                                    console.log(vis.noteSequence);
                                   }
                                 });
 
@@ -77,6 +78,7 @@ function App() {
   return (
     <>
       <h1>Audio to MIDI</h1>
+      <TempoControl player={player} />
       <SequencePlayer vis={vis} ns={noteSequence} player={player}/>
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <PlayBackRate audio={audio} setRate={setRate} />
