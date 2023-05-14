@@ -41,10 +41,15 @@
   color: #888;
 }
 
-#visualizer{
+#vis1{
   height: 500px;
   background-color: rgb(10, 10, 10);
+}
 
+#vis2{
+  background-color:  rgb(10, 10, 10);
+  max-height: 100px;
+  min-width: 80%;
 }
 
 rect.note{

@@ -2,7 +2,7 @@ import LoadAudio from './components/LoadAudio'
 import './App.css'
 import { useState, useEffect } from 'react'
 import PlayBackRate from './components/TempoControl';
-import { WaterfallSVGVisualizer, NoteSequence, SoundFontPlayer } from '@magenta/music/es6';
+import { WaterfallSVGVisualizer, NoteSequence, SoundFontPlayer, PianoRollCanvasVisualizer } from '@magenta/music/es6';
 import SequencePlayer from './components/SequencePlayer';
 import colorBlackKeys from './components/colorBlackKeys';
 import classifySharps from './components/classifySharps';
@@ -41,6 +41,7 @@ function App() {
   const [rate, setRate] = useState(1);
   const [noteSequence, setNoteSequence] = useState(null);
   const [vis, setVis] = useState();
+  const [vis2, setVis2] = useState();
   const [time, setTime] = useState(0);
   const [totalTime, setTotalTime] = useState();
 
@@ -54,7 +55,7 @@ function App() {
   function visualize(){
     visualizer = new WaterfallSVGVisualizer(
             noteSequence, 
-            document.getElementById('visualizer'),
+            document.getElementById('vis1'),
             {
               noteRGB: WHITE_KEY_COLOR,
               activeNoteRGB: ACTIVE_KEY_COLOR,
@@ -65,14 +66,25 @@ function App() {
               blackNoteWidth: BLACK_WIDTH
             }
     );
-
     classifySharps(visualizer);
     setVis(visualizer);
+  }
+
+  let visualizer2;
+  function visualize2(){
+    visualizer2 = new PianoRollCanvasVisualizer(noteSequence, document.getElementById('vis2'),
+      {
+        noteRGB: WHITE_KEY_COLOR,
+        activeNoteRGB: ACTIVE_KEY_COLOR
+      }
+    );
+    setVis2(visualizer2);
   }
 
   useEffect(()=>{
     if(noteSequence === null){return;}
     visualize();
+    visualize2();
     setTotalTime(noteSequence.totalTime);
   }, [noteSequence])
 
@@ -83,6 +95,7 @@ function App() {
                                 {
                                   run: (note = NoteSequence.Note) => {
                                     vis.redraw(note, true);
+                                    vis2.redraw(note,true);
                                   }
                                 });
 
@@ -90,10 +103,17 @@ function App() {
 
   return (
     <>
-      <SequencePlayer vis={vis} ns={noteSequence} player={player} totalTime={totalTime} updateTime={updateTime}/>
-      <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
-      <TempoControl player={player} />
-      <div id='visualizer'></div>
+      <div id='controls'>
+        <SequencePlayer vis={vis} ns={noteSequence} player={player} totalTime={totalTime} updateTime={updateTime}/>
+        <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
+        <TempoControl player={player} />
+      </div>
+      <div id='visualizers'>
+        <canvas id='vis2'></canvas>
+        <div id='vis1'></div>
+      </div>
+      
+      
     </>
   )
 }
