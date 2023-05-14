@@ -7,6 +7,8 @@ import SequencePlayer from './components/SequencePlayer';
 import colorBlackKeys from './components/colorBlackKeys';
 import classifySharps from './components/classifySharps';
 import TempoControl from './components/TempoControl';
+import TimeControl from './components/TimeControl';
+import * as mm from '@magenta/music/es6';
 
 
 
@@ -31,12 +33,18 @@ const SHARP_NOTES = [70,73,75,78,80,82,85,87,90,92,
                     ];
 
 
+// mm.Player.tone.Transport.now() gets current time, but it doesn't start/stop when Player starts/stops
+
 
 function App() {
   const [audio, setAudio] = useState();
   const [rate, setRate] = useState(1);
   const [noteSequence, setNoteSequence] = useState(null);
   const [vis, setVis] = useState();
+  const [time, setTime] = useState(0);
+  const [totalTime, setTotalTime] = useState();
+
+  let currTime = 0;
 
   let visualizer;
   function visualize(){
@@ -60,6 +68,7 @@ function App() {
   useEffect(()=>{
     if(noteSequence === null){return;}
     visualize();
+    setTotalTime(noteSequence.totalTime);
   }, [noteSequence])
 
 
@@ -69,7 +78,7 @@ function App() {
                                 {
                                   run: (note = NoteSequence.Note) => {
                                     vis.redraw(note, true);
-                                    console.log(vis.noteSequence);
+                                    console.log(noteSequence);
                                   }
                                 });
 
@@ -81,6 +90,7 @@ function App() {
       <SequencePlayer vis={vis} ns={noteSequence} player={player}/>
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <TempoControl player={player} />
+      <TimeControl player={player} time={currTime} totalTime={totalTime} />
       <div id='visualizer'></div>
     </>
   )

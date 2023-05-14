@@ -8,6 +8,8 @@ export default function TempoControl(props){
         let newTempo = e.target.value
         setTempo(newTempo);
         props.player.setTempo(newTempo);
+
+        console.log(props.player);
     }
 
     return(
