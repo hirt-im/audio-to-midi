@@ -53,6 +53,8 @@
   max-height: 50px;
   min-width: 100%;
   max-width: 100%;
+  cursor: url('./assets/cursor.png'), pointer;
+  /* cursor: pointer; */
 }
 
 #visualizers{

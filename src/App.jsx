@@ -137,6 +137,8 @@ function App() {
     // this is no good cause youre drawing directly on canvas with the notes also drawn directly on
     // wont work
 
+    //IDEA: change cursor to long vertical line upon hover
+
   }
 
 
