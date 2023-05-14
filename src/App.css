@@ -51,8 +51,8 @@
 
 #vis2{
   background-color:  rgb(10, 10, 10);
-  max-height: 50px;
-  min-width: 100%;
+  max-height: 60px;
+  /* min-width: 100%; */
   max-width: 100%;
   cursor: url('./assets/cursor.png'), pointer;
   /* border-bottom: 1px solid white; */
@@ -66,8 +66,9 @@
 
 .waterfall-piano{
   /* min-width: 100%; */
-  /* ^these cause svg to not be centered */
   /* width: 100%; */
+  /* ^these mess up piano*/
+
   max-width: 100%;
 }
 
