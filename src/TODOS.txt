@@ -1,24 +1,13 @@
-1. Upload audio file or paste URL
-2. Use Magenta to transcribeFromAudioFile / transcribeFromAudioURL
-
-3. Display notes / generate MIDI file and display that 
-
-Bugs:
-Error: Cannot start playback while `Tone.Transport` is in use
-
-
-Time Control Solution:
-Have 2nd horizontal visualizer
-have vertical line upon hover over it 
-when you click somewhere on it, it seekTo's that time 
-to get time, just do click location / totalwidth, multiply by totalTime 
-
+1. Fix seekTo when tempo is changed
+2. Get audio file from youtube URL
+3. Loading screen while its processing audio (robot emoji 'Processing...')
+4. Fix OAF initializing multiple times 
+5. Fix 'Error: Cannot start playback while `Tone.Transport` is in use' bug
+6. Fix notes being misaligned to piano sometimes.. wtf
 
 
 Feature ideas:
 Looping, click and drag over vis2 to highlight section and loop over it
-
-
 
 
 
