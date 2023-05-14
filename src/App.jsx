@@ -115,6 +115,7 @@ function App() {
   }       
   
   function showLine(e){
+    return;
     // show vertical line while hovering over vis2
     // console.log(e);
     let cvs = document.getElementById('vis2');
@@ -128,8 +129,13 @@ function App() {
     ctx.moveTo(x, 0);
     // ctx.strokeStyle('white');
     ctx.strokeStyle = 'white';
-    ctx.lineTo(x, rect.height);
+    ctx.lineWidth = 2;
+    ctx.lineTo(x, rect.bottom);
     ctx.stroke();
+    // ctx.clearRect(0,0,cvs.width, cvs.height);
+
+    // this is no good cause youre drawing directly on canvas with the notes also drawn directly on
+    // wont work
 
   }
 
