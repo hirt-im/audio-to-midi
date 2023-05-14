@@ -17,3 +17,10 @@ to get time, just do click location / totalwidth, multiply by totalTime
 
 Feature ideas:
 Looping, click and drag over vis2 to highlight section and loop over it
+
+
+
+
+
+Add Description:
+Say it works best for solo piano music, but you can try other instruments as well 
