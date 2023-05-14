@@ -50,11 +50,12 @@
 #vis2{
   background-color:  rgb(10, 10, 10);
   max-height: 50px;
-  min-width: 100%;
+  max-width: 100%;
 }
 
 #visualizers{
   background-color: rgb(10, 10, 10);
+  /* max-width: 100%; */
 }
 
 

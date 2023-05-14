@@ -111,6 +111,8 @@ function App() {
     //scroll down visualizer1 when you seek
     let container = document.getElementsByClassName('waterfall-notes-container')[0];
     container.scrollTop = container.scrollHeight - (ratio * container.scrollHeight);
+
+    //doesn't work correctly when playback rate is changed
   }                  
 
   function viewScroll(e){
