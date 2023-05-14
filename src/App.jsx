@@ -102,6 +102,11 @@ function App() {
   );
 
   function changeTime(e){
+    if(!player.isPlaying()){
+      player.start(noteSequence);
+    }
+
+
     let rect = e.target.getBoundingClientRect();
     let x = e.clientX - rect.left;
     let ratio = x / rect.width;
