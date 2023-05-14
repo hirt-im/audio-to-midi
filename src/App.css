@@ -46,6 +46,7 @@
   background-color: rgb(10, 10, 10);
   min-width: 100%;
   max-width: 100%;
+  /* text-align: center; */
 }
 
 #vis2{
@@ -64,14 +65,28 @@
 }
 
 .waterfall-piano{
+  /* min-width: 100%; */
+  /* ^these cause svg to not be centered */
+  /* width: 100%; */
+  max-width: 100%;
+}
+
+.waterfall-notes-container{
   min-width: 100%;
   max-width: 100%;
 }
 
+rect{
+  rx: 2px;
+}
 
 rect.note{
   rx: 4px;
   fill-opacity: 1;
+}
+
+rect.note.sharp{
+  rx: 3px;
 }
 rect.note:not(.active){
   fill: white;
