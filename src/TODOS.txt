@@ -2,3 +2,12 @@
 2. Use Magenta to transcribeFromAudioFile / transcribeFromAudioURL
 
 3. Display notes / generate MIDI file and display that 
+
+
+
+
+Time Control Solution:
+Have 2nd horizontal visualizer
+have vertical line upon hover over it 
+when you click somewhere on it, it seekTo's that time 
+to get time, just do click location / totalwidth, multiply by totalTime 

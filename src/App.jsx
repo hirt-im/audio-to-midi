@@ -34,7 +34,7 @@ const SHARP_NOTES = [70,73,75,78,80,82,85,87,90,92,
 
 
 // mm.Player.tone.Transport.now() gets current time, but it doesn't start/stop when Player starts/stops
-
+// also try mm.Player.tone.Transport.seconds
 
 function App() {
   const [audio, setAudio] = useState();
@@ -43,8 +43,14 @@ function App() {
   const [vis, setVis] = useState();
   const [time, setTime] = useState(0);
   const [totalTime, setTotalTime] = useState();
+  const [counter, setCounter] = useState();
 
   let currTime = 0;
+
+  function updateTime(time){
+    setTime(time);
+  }
+
 
   let visualizer;
   function visualize(){
@@ -61,6 +67,7 @@ function App() {
               blackNoteWidth: BLACK_WIDTH
             }
     );
+
     classifySharps(visualizer);
     setVis(visualizer);
   }
@@ -78,7 +85,10 @@ function App() {
                                 {
                                   run: (note = NoteSequence.Note) => {
                                     vis.redraw(note, true);
-                                    console.log(noteSequence);
+                                    console.log(mm.Player.tone.Transport.seconds);
+                                    console.log(noteSequence, note);
+                                    // currTime = note.startTime;
+                                    setTime(note.startTime);
                                   }
                                 });
 
@@ -86,11 +96,10 @@ function App() {
 
   return (
     <>
-      <h1>Audio to MIDI</h1>
-      <SequencePlayer vis={vis} ns={noteSequence} player={player}/>
+      <SequencePlayer vis={vis} ns={noteSequence} player={player} updateTime={updateTime}/>
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <TempoControl player={player} />
-      <TimeControl player={player} time={currTime} totalTime={totalTime} />
+      <TimeControl player={player} time={time} totalTime={totalTime} />
       <div id='visualizer'></div>
     </>
   )

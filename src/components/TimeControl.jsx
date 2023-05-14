@@ -18,8 +18,9 @@ export default function TimeControl(props){
 
     return(
         <>
-            <div>{(props.totalTime == null ? 0 : Math.round( (time / props.totalTime) * 100))}%</div>
-            <input type="range" min={0} max={props.totalTime} value={time} 
+            <div>{props.time}</div>
+            {/* <div>{(props.totalTime == null ? 0 : Math.round( (time / props.totalTime) * 100))}%</div> */}
+            <input type="range" min={0} max={props.totalTime} value={props.time} 
             class="slider" onChange={handleChange}/>
         </>
     );
