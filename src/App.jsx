@@ -85,8 +85,8 @@ function App() {
                                 {
                                   run: (note = NoteSequence.Note) => {
                                     vis.redraw(note, true);
-                                    console.log(mm.Player.tone.Transport.seconds);
-                                    console.log(noteSequence, note);
+                                    // console.log(mm.Player.tone.Transport.seconds);
+                                    // console.log(noteSequence, note);
                                     // currTime = note.startTime;
                                     // setTime(note.startTime);
                                   }

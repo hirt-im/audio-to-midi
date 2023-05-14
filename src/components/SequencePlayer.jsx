@@ -11,17 +11,17 @@ export default function SequencePlayer(props){
       if(state === 'stopped'){
         props.player.start(props.vis.noteSequence);
         // mm.Player.tone.Transport.seconds = 0;
-        console.log(mm.Player.tone.Transport.seconds);
+        // console.log(mm.Player.tone.Transport.seconds);
       }
       else if (state === 'paused'){
         props.player.resume();
         // mm.Player.tone.Transport.seconds = 0;
-        console.log(mm.Player.tone.Transport.seconds);
+        // console.log(mm.Player.tone.Transport.seconds);
 
       }
       else{
         props.player.pause();
-        console.log(mm.Player.tone.Transport.seconds);
+        // console.log(mm.Player.tone.Transport.seconds);
 
       }
     }
