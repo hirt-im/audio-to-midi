@@ -42,49 +42,42 @@ function App() {
   const [noteSequence, setNoteSequence] = useState(null);
   const [vis, setVis] = useState();
   const [vis2, setVis2] = useState();
-  const [time, setTime] = useState(0);
   const [totalTime, setTotalTime] = useState();
 
 
-  function updateTime(time){
-    setTime(time);
-  }
-
-
   let visualizer;
+  let visualizer2;
   function visualize(){
     visualizer = new WaterfallSVGVisualizer(
-            noteSequence, 
-            document.getElementById('vis1'),
-            {
-              noteRGB: WHITE_KEY_COLOR,
-              activeNoteRGB: ACTIVE_KEY_COLOR,
-              noteHeight: 50,
-              pixelsPerTimeStep: 200,
-              noteSpacing: 10,
-              whiteNoteWidth: WHITE_WIDTH,
-              blackNoteWidth: BLACK_WIDTH
-            }
+      noteSequence, 
+      document.getElementById('vis1'),
+      {
+        noteRGB: WHITE_KEY_COLOR,
+        activeNoteRGB: ACTIVE_KEY_COLOR,
+        noteHeight: 50,
+        pixelsPerTimeStep: 200,
+        noteSpacing: 10,
+        whiteNoteWidth: WHITE_WIDTH,
+        blackNoteWidth: BLACK_WIDTH
+      }
     );
-    classifySharps(visualizer);
-    setVis(visualizer);
-  }
-
-  let visualizer2;
-  function visualize2(){
+   
     visualizer2 = new PianoRollCanvasVisualizer(noteSequence, document.getElementById('vis2'),
       {
         noteRGB: WHITE_KEY_COLOR,
         activeNoteRGB: ACTIVE_KEY_COLOR
       }
     );
+
+    classifySharps(visualizer);
+    setVis(visualizer);
     setVis2(visualizer2);
   }
+
 
   useEffect(()=>{
     if(noteSequence === null){return;}
     visualize();
-    visualize2();
     setTotalTime(noteSequence.totalTime);
   }, [noteSequence])
 
@@ -126,15 +119,13 @@ function App() {
     <>
       <div id='controls'>
         <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
-        <SequencePlayer vis={vis} ns={noteSequence} player={player} totalTime={totalTime} updateTime={updateTime}/>
+        <SequencePlayer vis={vis} ns={noteSequence} player={player} totalTime={totalTime}/>
         <TempoControl player={player} />
       </div>
       <div id='visualizers'>
         <canvas onClick={changeTime} id='vis2'></canvas>
         <div id='vis1'></div>
-      </div>
-      
-      
+      </div> 
     </>
   )
 }

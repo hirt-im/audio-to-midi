@@ -11,3 +11,8 @@ Have 2nd horizontal visualizer
 have vertical line upon hover over it 
 when you click somewhere on it, it seekTo's that time 
 to get time, just do click location / totalwidth, multiply by totalTime 
+
+
+
+Feature ideas:
+Looping, click and drag over vis2 to highlight section and loop over it
