@@ -125,8 +125,8 @@ function App() {
   return (
     <>
       <div id='controls'>
-        <SequencePlayer vis={vis} ns={noteSequence} player={player} totalTime={totalTime} updateTime={updateTime}/>
         <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
+        <SequencePlayer vis={vis} ns={noteSequence} player={player} totalTime={totalTime} updateTime={updateTime}/>
         <TempoControl player={player} />
       </div>
       <div id='visualizers'>

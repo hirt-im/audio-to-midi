@@ -14,6 +14,7 @@ export default function TempoControl(props){
 
     return(
         <>
+            <div><b>Playback Rate</b></div>
             <div>{Math.round( (tempo / 120) * 100)}%</div>
             <input type="range" min="12" max="240" value={tempo} class="slider" onChange={handleChange}/>
         </>

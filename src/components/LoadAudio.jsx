@@ -40,10 +40,10 @@ export default function LoadAudio(props){
         </div>
 
       {/* from URL */}
-        <form>
+        {/* <form>
             <input id='URL' type='text' placeholder='Enter URL' />
             <input type="submit" onClick={loadFromURL} />
-        </form>
+        </form> */}
       </>
       
       );
