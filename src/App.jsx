@@ -88,7 +88,7 @@ function App() {
                                     console.log(mm.Player.tone.Transport.seconds);
                                     console.log(noteSequence, note);
                                     // currTime = note.startTime;
-                                    setTime(note.startTime);
+                                    // setTime(note.startTime);
                                   }
                                 });
 
