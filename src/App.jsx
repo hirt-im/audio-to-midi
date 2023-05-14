@@ -90,15 +90,26 @@ function App() {
 
 
 
-  const player = new SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
-                                undefined,undefined,undefined,
-                                {
-                                  run: (note = NoteSequence.Note) => {
-                                    vis.redraw(note, true);
-                                    vis2.redraw(note,true);
-                                  }
-                                });
+  const player = new SoundFontPlayer(
+    'https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
+    undefined,undefined,undefined,
+    {
+      run: (note = NoteSequence.Note) => {
+        vis.redraw(note, true);
+        vis2.redraw(note,true);
+      }
+    }
+  );
 
+  function changeTime(e){
+    let rect = e.target.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let ratio = x / rect.width;
+    let newTime = ratio * totalTime;
+    player.seekTo(newTime);
+
+    //scroll down visualizer2 when you seek
+  }                  
 
 
   return (
@@ -109,7 +120,7 @@ function App() {
         <TempoControl player={player} />
       </div>
       <div id='visualizers'>
-        <canvas id='vis2'></canvas>
+        <canvas onClick={changeTime} id='vis2'></canvas>
         <div id='vis1'></div>
       </div>
       
