@@ -111,13 +111,15 @@ function App() {
     //scroll down visualizer1 when you seek
     let container = document.getElementsByClassName('waterfall-notes-container')[0];
     container.scrollTop = container.scrollHeight - (ratio * container.scrollHeight);
-
     //doesn't work correctly when playback rate is changed
-  }                  
-
-  function viewScroll(e){
+  }       
+  
+  function showLine(e){
+    // show vertical line while hovering over vis2
     console.log(e);
   }
+
+
 
   return (
     <>
@@ -127,8 +129,8 @@ function App() {
         <TempoControl player={player} />
       </div>
       <div id='visualizers'>
-        <canvas onClick={changeTime} id='vis2'></canvas>
-        <div onScroll={viewScroll} id='vis1'></div>
+        <canvas onClick={changeTime} onHover={showLine} id='vis2'></canvas>
+        <div id='vis1'></div>
       </div>
       
       
