@@ -44,8 +44,8 @@
 #vis1{
   height: 600px;
   background-color: rgb(10, 10, 10);
-  min-width: 100%;
-  max-width: 100%;
+  /* min-width: 100%; */
+  max-width: 100%; 
   /* text-align: center; */
 }
 
@@ -53,7 +53,7 @@
   background-color:  rgb(10, 10, 10);
   max-height: 60px;
   /* min-width: 100%; */
-  max-width: 100%;
+  max-width: 100%; 
   cursor: url('./assets/cursor.png'), pointer;
   /* border-bottom: 1px solid white; */
 }
@@ -73,7 +73,7 @@
 }
 
 .waterfall-notes-container{
-  min-width: 100%;
+  /* min-width: 100%; */
   max-width: 100%;
 }
 
