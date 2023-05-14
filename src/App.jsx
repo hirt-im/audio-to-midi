@@ -106,7 +106,6 @@ function App() {
       player.start(noteSequence);
     }
 
-
     let rect = e.target.getBoundingClientRect();
     let x = e.clientX - rect.left;
     let ratio = x / rect.width;
@@ -119,35 +118,6 @@ function App() {
     //doesn't work correctly when playback rate is changed
   }       
   
-  function showLine(e){
-    return;
-    // show vertical line while hovering over vis2
-    // console.log(e);
-    let cvs = document.getElementById('vis2');
-    console.log(cvs);
-    let ctx = cvs.getContext('2d');
-    console.log(ctx);
-
-    let rect = cvs.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-    ctx.beginPath();
-    ctx.moveTo(x, 0);
-    // ctx.strokeStyle('white');
-    ctx.strokeStyle = 'white';
-    ctx.lineWidth = 2;
-    ctx.lineTo(x, rect.bottom);
-    ctx.stroke();
-    // ctx.clearRect(0,0,cvs.width, cvs.height);
-
-    // this is no good cause youre drawing directly on canvas with the notes also drawn directly on
-    // wont work
-
-    //IDEA: change cursor to long vertical line upon hover
-
-  }
-
-
-
 
   return (
     <>
@@ -157,7 +127,7 @@ function App() {
         <TempoControl player={player} />
       </div>
       <div id='visualizers'>
-        <canvas onClick={changeTime} onMouseMove={showLine} id='vis2'></canvas>
+        <canvas onClick={changeTime} id='vis2'></canvas>
         <div id='vis1'></div>
       </div>
       
