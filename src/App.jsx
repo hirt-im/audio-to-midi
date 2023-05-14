@@ -1,7 +1,7 @@
 import LoadAudio from './components/LoadAudio'
 import './App.css'
 import { useState, useEffect } from 'react'
-import PlayBackRate from './components/PlaybackRate';
+import PlayBackRate from './components/TempoControl';
 import { WaterfallSVGVisualizer, NoteSequence, SoundFontPlayer } from '@magenta/music/es6';
 import SequencePlayer from './components/SequencePlayer';
 import colorBlackKeys from './components/colorBlackKeys';
@@ -78,10 +78,9 @@ function App() {
   return (
     <>
       <h1>Audio to MIDI</h1>
-      <TempoControl player={player} />
       <SequencePlayer vis={vis} ns={noteSequence} player={player}/>
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
-      <PlayBackRate audio={audio} setRate={setRate} />
+      <TempoControl player={player} />
       <div id='visualizer'></div>
     </>
   )

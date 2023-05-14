@@ -16,7 +16,7 @@ export default function LoadAudio(props){
 
     OAF.transcribeFromAudioFile(e.target.files[0]).then((ns) => {
       props.setNoteSequence(ns);
-      console.log(ns);
+      console.log(quantizedNS);
     })
   }
 

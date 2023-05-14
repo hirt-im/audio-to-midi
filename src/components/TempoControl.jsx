@@ -1,10 +1,19 @@
+import { useState } from "react";
+
+
 export default function TempoControl(props){
-    function handleClick(){
-        console.log(props.player);
-        // props.player.setTempo(123);
-        // console.log(props.player);
+    const [tempo, setTempo] = useState(120);
+
+    function handleChange(e){
+        let newTempo = e.target.value
+        setTempo(newTempo);
+        props.player.setTempo(newTempo);
     }
+
     return(
-        <button onClick={handleClick}>Set Tempo to 50</button>
+        <>
+            <div>{Math.round( (tempo / 120) * 100)}%</div>
+            <input type="range" min="12" max="240" value={tempo} class="slider" onChange={handleChange}/>
+        </>
     );
 }
