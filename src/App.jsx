@@ -43,9 +43,7 @@ function App() {
   const [vis, setVis] = useState();
   const [time, setTime] = useState(0);
   const [totalTime, setTotalTime] = useState();
-  const [counter, setCounter] = useState();
 
-  let currTime = 0;
 
   function updateTime(time){
     setTime(time);
@@ -85,11 +83,6 @@ function App() {
                                 {
                                   run: (note = NoteSequence.Note) => {
                                     vis.redraw(note, true);
-                                    // console.log(mm.Player.tone.Transport.seconds);
-                                    // console.log(noteSequence, note);
-                                    currTime = note.startTime;
-                                    console.log(currTime);
-                                    // setTime(note.startTime);
                                   }
                                 });
 
@@ -100,7 +93,6 @@ function App() {
       <SequencePlayer vis={vis} ns={noteSequence} player={player} totalTime={totalTime} updateTime={updateTime}/>
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <TempoControl player={player} />
-      {/* <TimeControl  player={player} time={currTime} totalTime={totalTime} /> */}
       <div id='visualizer'></div>
     </>
   )
