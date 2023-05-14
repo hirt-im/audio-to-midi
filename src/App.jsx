@@ -116,8 +116,23 @@ function App() {
   
   function showLine(e){
     // show vertical line while hovering over vis2
-    console.log(e);
+    // console.log(e);
+    let cvs = document.getElementById('vis2');
+    console.log(cvs);
+    let ctx = cvs.getContext('2d');
+    console.log(ctx);
+
+    let rect = cvs.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    // ctx.strokeStyle('white');
+    ctx.strokeStyle = 'white';
+    ctx.lineTo(x, rect.height);
+    ctx.stroke();
+
   }
+
 
 
 
@@ -129,7 +144,7 @@ function App() {
         <TempoControl player={player} />
       </div>
       <div id='visualizers'>
-        <canvas onClick={changeTime} onHover={showLine} id='vis2'></canvas>
+        <canvas onClick={changeTime} onMouseMove={showLine} id='vis2'></canvas>
         <div id='vis1'></div>
       </div>
       
