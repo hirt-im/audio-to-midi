@@ -3,7 +3,8 @@
 
 3. Display notes / generate MIDI file and display that 
 
-
+Bugs:
+Error: Cannot start playback while `Tone.Transport` is in use
 
 
 Time Control Solution:

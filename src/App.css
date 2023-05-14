@@ -71,6 +71,7 @@
 
 rect.note{
   rx: 4px;
+  fill-opacity: 1;
 }
 rect.note:not(.active){
   fill: white;
