@@ -87,7 +87,8 @@ function App() {
                                     vis.redraw(note, true);
                                     // console.log(mm.Player.tone.Transport.seconds);
                                     // console.log(noteSequence, note);
-                                    // currTime = note.startTime;
+                                    currTime = note.startTime;
+                                    console.log(currTime);
                                     // setTime(note.startTime);
                                   }
                                 });
@@ -96,10 +97,10 @@ function App() {
 
   return (
     <>
-      <SequencePlayer vis={vis} ns={noteSequence} player={player} updateTime={updateTime}/>
+      <SequencePlayer vis={vis} ns={noteSequence} player={player} totalTime={totalTime} updateTime={updateTime}/>
       <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
       <TempoControl player={player} />
-      <TimeControl player={player} time={time} totalTime={totalTime} />
+      {/* <TimeControl  player={player} time={currTime} totalTime={totalTime} /> */}
       <div id='visualizer'></div>
     </>
   )

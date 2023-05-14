@@ -12,31 +12,31 @@ export default function TimeControl(props){
     //     setTime(time + 1)
     // }, [Math.round(mm.Player.tone.Transport.seconds) > time])
 
-    useEffect(() => {
-        if(props.player.isPlaying()){
-            setInterval(() => {
-                setTime(parseFloat(time) + 1);
-                console.log(time);
-            }, [1000])
-        }
-    }, [props.player.isPlaying()])
+    // useEffect(() => {
+    //     if(props.player.isPlaying()){
+    //         setInterval(() => {
+    //             setTime(parseFloat(time) + 1);
+    //             console.log(time);
+    //         }, [1000])
+    //     }
+    // }, [props.player.isPlaying()])
     
     // if(props.ns.totalTime == null){return}
 
-    function handleChange(e){
-        // return;
-        console.log(props.player.isPlaying());
-        let newTime = e.target.value;
-        props.player.seekTo(newTime);
-        setTime(newTime);
-    }
+    // function handleChange(e){
+    //     // return;
+    //     console.log(props.player.isPlaying());
+    //     let newTime = e.target.value;
+    //     props.player.seekTo(newTime);
+    //     setTime(newTime);
+    // }
 
     return(
         <>
-            <div>{time}</div>
-            {/* <div>{(props.totalTime == null ? 0 : Math.round( (time / props.totalTime) * 100))}%</div> */}
-            <input type="range" min={0} max={props.totalTime} value={time} 
-            class="slider" onChange={handleChange}/>
+            {/* <div>{Math.round((props.time / props.totalTime) * 100)}%</div> */}
+            <div>{(props.totalTime == null ? 0 : Math.round( (props.time / props.totalTime) * 100))}%</div>
+            <input  type="range" min={0} max={props.totalTime} value={props.time} 
+            class="slider" />
         </>
     );
 }
