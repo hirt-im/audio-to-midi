@@ -105,6 +105,9 @@ function App() {
     if(!player.isPlaying()){
       player.start(noteSequence);
     }
+    if(player.getPlayState() === 'paused'){
+      player.resume();
+    }
 
     let rect = e.target.getBoundingClientRect();
     let x = e.clientX - rect.left;
