@@ -42,9 +42,10 @@
 }
 
 #vis1{
-  height: 500px;
+  height: 600px;
   background-color: rgb(10, 10, 10);
   min-width: 100%;
+  max-width: 100%;
 }
 
 #vis2{
@@ -56,7 +57,13 @@
 
 #visualizers{
   background-color: rgb(10, 10, 10);
-  /* max-width: 100%; */
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.waterfall-piano{
+  min-width: 100%;
+  max-width: 100%;
 }
 
 
