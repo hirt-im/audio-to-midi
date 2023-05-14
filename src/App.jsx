@@ -108,9 +108,14 @@ function App() {
     let newTime = ratio * totalTime;
     player.seekTo(newTime);
 
-    //scroll down visualizer2 when you seek
+    //scroll down visualizer1 when you seek
+    let container = document.getElementsByClassName('waterfall-notes-container')[0];
+    container.scrollTop = container.scrollHeight - (ratio * container.scrollHeight);
   }                  
 
+  function viewScroll(e){
+    console.log(e);
+  }
 
   return (
     <>
@@ -121,7 +126,7 @@ function App() {
       </div>
       <div id='visualizers'>
         <canvas onClick={changeTime} id='vis2'></canvas>
-        <div id='vis1'></div>
+        <div onScroll={viewScroll} id='vis1'></div>
       </div>
       
       
