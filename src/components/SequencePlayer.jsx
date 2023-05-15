@@ -6,19 +6,18 @@ import * as mm from '@magenta/music/es6';
 
 export default function SequencePlayer(props){
 
-
-
   function handleClick(){
-    let state = props.player.getPlayState();
-    if(state === 'stopped'){
-      props.player.start(props.vis.noteSequence);
-    }
-    else if (state === 'paused'){
-      props.player.resume();
+    switch (props.player.getPlayState()) {
+      case 'stopped':
+        props.player.start(props.vis.noteSequence);
+        break;
 
-    }
-    else{
-      props.player.pause();
+      case 'paused':
+        props.player.resume();
+        break;
+
+      case 'started':
+        props.player.pause();
     }
   }
 
