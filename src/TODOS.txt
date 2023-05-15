@@ -1,9 +1,12 @@
 2. Get audio file from youtube URL
 3. Loading screen while its processing audio (robot emoji 'Processing...')
 4. Fix OAF initializing multiple times 
-5. Fix 'Error: Cannot start playback while `Tone.Transport` is in use' bug
 6. Fix notes being misaligned to piano sometimes.. wtf
 7. Seeking by clicking isn't perfectly aligned
+
+Bug:
+'Error: Cannot start playback while `Tone.Transport` is in use' bug
+Solution: just make page refresh before allowing loading of new file 
 
 
 Feature ideas:
