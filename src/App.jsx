@@ -37,15 +37,13 @@ const SHARP_NOTES = [70,73,75,78,80,82,85,87,90,92,
 
 function App() {
   const [noteSequence, setNoteSequence] = useState(null);
+  const [totalTime, setTotalTime] = useState();
   const [vis, setVis] = useState();
   const [vis2, setVis2] = useState();
-  const [totalTime, setTotalTime] = useState();
 
-
-  let visualizer;
-  let visualizer2;
+  
   function visualize(){
-    visualizer = new WaterfallSVGVisualizer(
+    let visualizer = new WaterfallSVGVisualizer(
       noteSequence, 
       document.getElementById('vis1'),
       {
@@ -59,7 +57,7 @@ function App() {
       }
     );
    
-    visualizer2 = new PianoRollCanvasVisualizer(noteSequence, document.getElementById('vis2'),
+    let visualizer2 = new PianoRollCanvasVisualizer(noteSequence, document.getElementById('vis2'),
       {
         noteRGB: WHITE_KEY_COLOR,
         activeNoteRGB: ACTIVE_KEY_COLOR
