@@ -1,8 +1,3 @@
-import { SoundFontPlayer, NoteSequence } from '@magenta/music/es6';
-import { useState, useEffect } from 'react'
-import * as mm from '@magenta/music/es6';
-
-
 
 export default function SequencePlayer(props){
 
