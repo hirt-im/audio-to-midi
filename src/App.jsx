@@ -83,7 +83,6 @@ function App() {
       run: (note = NoteSequence.Note) => {
         vis.redraw(note, true);
         vis2.redraw(note,true);
-        // console.log(note, vis2);
 
         // draw vertical line where active note is on vis2
         let canvas = vis2.ctx.canvas;

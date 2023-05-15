@@ -99,3 +99,7 @@ rect.note.sharp:not(.active){
   stroke: white;
 }
 
+/* rect.note.sharp.active{
+  fill: pink;
+} */
+
