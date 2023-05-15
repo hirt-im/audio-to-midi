@@ -63,7 +63,7 @@ function App() {
       }
     );
 
-    classifySharps(visualizer);
+    classifySharps(visualizer, BLACK_WIDTH);
     setVis(visualizer);
     setVis2(visualizer2);
   }
