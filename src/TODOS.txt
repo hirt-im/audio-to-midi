@@ -1,9 +1,9 @@
-1. Fix seekTo when tempo is changed
 2. Get audio file from youtube URL
 3. Loading screen while its processing audio (robot emoji 'Processing...')
 4. Fix OAF initializing multiple times 
 5. Fix 'Error: Cannot start playback while `Tone.Transport` is in use' bug
 6. Fix notes being misaligned to piano sometimes.. wtf
+7. Seeking by clicking isn't perfectly aligned
 
 
 Feature ideas:
@@ -16,8 +16,3 @@ Say it works best for solo piano music, but you can try other instruments as wel
 
 
 
-
-Playback speed rate bug:
-The seekTo scales with the current PlayBackRate
-if Playback rate is at 33%, seekTo will go to 33% of the time clicked
-if it is 150%, it will jump ahead 150% of the value intended
