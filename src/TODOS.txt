@@ -13,3 +13,11 @@ Looping, click and drag over vis2 to highlight section and loop over it
 
 Add Description:
 Say it works best for solo piano music, but you can try other instruments as well 
+
+
+
+
+Playback speed rate bug:
+The seekTo scales with the current PlayBackRate
+if Playback rate is at 33%, seekTo will go to 33% of the time clicked
+if it is 150%, it will jump ahead 150% of the value intended

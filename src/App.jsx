@@ -112,16 +112,19 @@ function App() {
       player.resume();
     }
 
+    let tempo;
+    (player.desiredQPM == undefined ? tempo = 120 : tempo = player.desiredQPM);
+    let tempoRatio = tempo / 120;
+
     let rect = e.target.getBoundingClientRect();
     let x = e.clientX - rect.left;
     let ratio = x / rect.width;
     let newTime = ratio * totalTime;
-    player.seekTo(newTime);
+    player.seekTo(newTime / tempoRatio);
 
     //scroll down visualizer1 when you seek
     let container = document.getElementsByClassName('waterfall-notes-container')[0];
     container.scrollTop = container.scrollHeight - (ratio * container.scrollHeight);
-    //doesn't work correctly when playback rate is changed
   }       
   
 
