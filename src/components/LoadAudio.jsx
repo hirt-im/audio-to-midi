@@ -11,48 +11,22 @@ export default function LoadAudio(props){
   OAF.initialize();
 
   function loadFromFile(e){
-    // console.log(e.target.files[0]);
-    // let src = URL.createObjectURL(e.target.files[0]);
-    // let a = new Audio(src);
-    // props.setAudio(a);
-
     OAF.transcribeFromAudioFile(e.target.files[0]).then((ns) => {
       props.setNoteSequence(ns);
     })
-
     setLoaded(true);
-    let input = document.getElementById('load-file');
-    input.disabled = true;
-
   }
 
-  function loadFromURL(e){
-    let url = document.getElementById('URL').value;
+  function handleClick(){
+    if(loaded){location.reload();}
+  }
 
-    //this doesn't work
-    OAF.transcribeFromAudioURL(url).then((ns) => {
-      props.setNoteSequence(ns);
-      console.log(ns);
-    })
-
-    e.preventDefault();
-    }
-  
-  
-    return (
-      <>
-      {/* from File */}
-        <div>
-          <input id='load-file' type="file" onChange={loadFromFile}/>
-        </div>
-
-      {/* from URL */}
-        {/* <form>
-            <input id='URL' type='text' placeholder='Enter URL' />
-            <input type="submit" onClick={loadFromURL} />
-        </form> */}
-      </>
-      
-      );
+  return (
+    <>
+      <div>
+        <input id='load-file' type="file" onClick={handleClick} onChange={loadFromFile}/>
+      </div>
+    </>
+  );
 }
 
