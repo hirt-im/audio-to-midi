@@ -7,7 +7,6 @@ import SequencePlayer from './components/SequencePlayer';
 import colorBlackKeys from './components/colorBlackKeys';
 import classifySharps from './components/classifySharps';
 import TempoControl from './components/TempoControl';
-import TimeControl from './components/TimeControl';
 import * as mm from '@magenta/music/es6';
 
 
@@ -37,8 +36,6 @@ const SHARP_NOTES = [70,73,75,78,80,82,85,87,90,92,
 // also try mm.Player.tone.Transport.seconds
 
 function App() {
-  const [audio, setAudio] = useState();
-  const [rate, setRate] = useState(1);
   const [noteSequence, setNoteSequence] = useState(null);
   const [vis, setVis] = useState();
   const [vis2, setVis2] = useState();
@@ -131,7 +128,7 @@ function App() {
   return (
     <>
       <div id='controls'>
-        <LoadAudio setAudio={setAudio} setNoteSequence={setNoteSequence} />
+        <LoadAudio setNoteSequence={setNoteSequence} />
         <SequencePlayer vis={vis} ns={noteSequence} player={player} totalTime={totalTime}/>
         <TempoControl player={player} />
       </div>

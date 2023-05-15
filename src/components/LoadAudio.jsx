@@ -9,10 +9,10 @@ export default function LoadAudio(props){
   OAF.initialize();
 
   function loadFromFile(e){
-    console.log(e.target.files[0]);
-    let src = URL.createObjectURL(e.target.files[0]);
-    let a = new Audio(src);
-    props.setAudio(a);
+    // console.log(e.target.files[0]);
+    // let src = URL.createObjectURL(e.target.files[0]);
+    // let a = new Audio(src);
+    // props.setAudio(a);
 
     OAF.transcribeFromAudioFile(e.target.files[0]).then((ns) => {
       props.setNoteSequence(ns);
