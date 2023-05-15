@@ -90,6 +90,17 @@ function App() {
       run: (note = NoteSequence.Note) => {
         vis.redraw(note, true);
         vis2.redraw(note,true);
+        // console.log(note, vis2);
+
+        // draw vertical line where active note is on vis2
+        let canvas = vis2.ctx.canvas;
+        let x = (note.startTime / totalTime) * canvas.width;
+        vis2.ctx.strokeStyle = 'white';
+        vis2.ctx.beginPath();
+        vis2.ctx.moveTo(x, 0);
+        vis2.ctx.lineTo(x, canvas.height);
+        vis2.ctx.stroke();
+
       }
     }
   );
