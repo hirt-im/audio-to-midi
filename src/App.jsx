@@ -37,11 +37,10 @@ const SHARP_NOTES = [70,73,75,78,80,82,85,87,90,92,
 
 function App() {
   const [noteSequence, setNoteSequence] = useState(null);
-  const [totalTime, setTotalTime] = useState();
   const [vis, setVis] = useState();
   const [vis2, setVis2] = useState();
 
-  
+
   function visualize(){
     let visualizer = new WaterfallSVGVisualizer(
       noteSequence, 
@@ -73,7 +72,6 @@ function App() {
   useEffect(()=>{
     if(noteSequence === null){return;}
     visualize();
-    setTotalTime(noteSequence.totalTime);
   }, [noteSequence])
 
 
@@ -89,7 +87,7 @@ function App() {
 
         // draw vertical line where active note is on vis2
         let canvas = vis2.ctx.canvas;
-        let x = (note.startTime / totalTime) * canvas.width;
+        let x = (note.startTime / noteSequence.totalTime) * canvas.width;
         vis2.ctx.strokeStyle = 'white';
         vis2.ctx.beginPath();
         vis2.ctx.moveTo(x, 0);
@@ -103,7 +101,7 @@ function App() {
     if(!player.isPlaying()){
       player.start(noteSequence);
     }
-    if(player.getPlayState() === 'paused'){
+    else if(player.getPlayState() === 'paused'){
       player.resume();
     }
 
@@ -114,7 +112,7 @@ function App() {
     let rect = e.target.getBoundingClientRect();
     let x = e.clientX - rect.left;
     let ratio = x / rect.width;
-    let newTime = ratio * totalTime;
+    let newTime = ratio * noteSequence.totalTime;
     player.seekTo(newTime / tempoRatio);
 
     //scroll down visualizer1 when you seek
@@ -127,7 +125,7 @@ function App() {
     <>
       <div id='controls'>
         <LoadAudio setNoteSequence={setNoteSequence} />
-        <SequencePlayer vis={vis} ns={noteSequence} player={player} totalTime={totalTime}/>
+        <SequencePlayer vis={vis} ns={noteSequence} player={player} />
         <TempoControl player={player} />
       </div>
       <div id='visualizers'>
