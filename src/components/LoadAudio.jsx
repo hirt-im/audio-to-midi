@@ -5,6 +5,8 @@ import * as mm from "@magenta/music/es6";
 
 export default function LoadAudio(props){
 
+  const [loaded, setLoaded] = useState(false);
+
   const OAF = new mm.OnsetsAndFrames("https://storage.googleapis.com/magentadata/js/checkpoints/transcription/onsets_frames_uni");
   OAF.initialize();
 
@@ -17,6 +19,11 @@ export default function LoadAudio(props){
     OAF.transcribeFromAudioFile(e.target.files[0]).then((ns) => {
       props.setNoteSequence(ns);
     })
+
+    setLoaded(true);
+    let input = document.getElementById('load-file');
+    input.disabled = true;
+
   }
 
   function loadFromURL(e){
@@ -36,7 +43,7 @@ export default function LoadAudio(props){
       <>
       {/* from File */}
         <div>
-          <input type="file" onChange={loadFromFile}/>
+          <input id='load-file' type="file" onChange={loadFromFile}/>
         </div>
 
       {/* from URL */}
