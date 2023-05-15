@@ -100,7 +100,6 @@ function App() {
         vis2.ctx.moveTo(x, 0);
         vis2.ctx.lineTo(x, canvas.height);
         vis2.ctx.stroke();
-
       }
     }
   );
