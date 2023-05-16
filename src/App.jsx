@@ -120,7 +120,7 @@ function App() {
   
 
   return (
-    <>
+    <div id='container'>
       <div id='controls'>
         <LoadAudio setNoteSequence={setNoteSequence} />
         <SequencePlayer vis={vis} ns={noteSequence} player={player} />
@@ -130,7 +130,7 @@ function App() {
         <canvas onClick={changeTime} id='vis2'></canvas>
         <div id='vis1'></div>
       </div> 
-    </>
+    </div>
   )
 }
 
