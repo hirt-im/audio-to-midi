@@ -126,8 +126,10 @@ function App() {
     <div id='container'>
       <div id='controls'>
         <LoadAudio setNoteSequence={setNoteSequence} />
-        <SequencePlayer vis={vis} ns={noteSequence} player={player} />
-        <TempoControl player={player} />
+        <div id='audio-controls'>
+          <SequencePlayer vis={vis} ns={noteSequence} player={player} />
+          <TempoControl player={player} />
+        </div>
         <SaveMIDI ns={noteSequence} />
       </div>
       <div id='visualizers'>
