@@ -11,7 +11,7 @@ export default function TempoControl(props){
     }
 
     return(
-        <div style={{ display: 'flex', flexDirection: 'column' }}> 
+        <div id='tempo-container' style={{ display: 'flex', flexDirection: 'column' }}> 
             <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <div><b>Playback Rate</b></div>
                 <div>{Math.round((tempo / 120) * 100)}%</div>
