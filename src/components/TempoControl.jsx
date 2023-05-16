@@ -6,6 +6,7 @@ export default function TempoControl(props){
 
     function handleChange(e){
         let newTempo = e.target.value
+        if(Math.abs(120 - newTempo) <= 2){newTempo = 120;}
         setTempo(newTempo);
         props.player.setTempo(newTempo);
     }
