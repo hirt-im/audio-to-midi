@@ -2,21 +2,15 @@
 
 export default function SaveMIDI(props){
 
-    let loaded;
-    (props.ns == null ? loaded = false : loaded = true);
-
-
     function handleClick(){
         console.log('saved');
-    }
-
-    if(!loaded){
-        return(
-            <button disabled='true' class='save-button' >Save MIDI</button>
-        );
+        // saveAs(new File([mm.sequenceProtoToMidi(props.ns)], 'AudioToMIDI.mid'));
     }
 
     return(
-        <button class='save-button' onClick={handleClick}>Save MIDI</button>
+        <button disabled={(props.ns == null ? true : false)} 
+                class='save-button' 
+                onClick={handleClick}>Save MIDI
+        </button>
     );
 }
