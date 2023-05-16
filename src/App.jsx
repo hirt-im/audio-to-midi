@@ -9,6 +9,7 @@ import classifySharps from './components/classifySharps';
 import TempoControl from './components/TempoControl';
 import * as mm from '@magenta/music/es6';
 import SaveMIDI from './components/SaveMIDI';
+import Description from './components/Description';
 
 
 // const BLACK_KEY_COLOR = 'rgba(0, 204, 197, 0.79)';
@@ -131,7 +132,9 @@ function App() {
       </div>
       <div id='visualizers'>
         <canvas onClick={changeTime} id='vis2'></canvas>
-        <div id='vis1'></div>
+        <div id='vis1'>
+          {(noteSequence == null ? <Description /> : null)}
+        </div>
       </div> 
     </div>
   )
