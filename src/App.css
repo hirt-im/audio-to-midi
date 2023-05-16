@@ -103,3 +103,36 @@ rect.note.sharp:not(.active){
   fill: pink;
 } */
 
+/* input[type=file]::file-selector-button {
+  border: 2px solid #6c5ce7;
+  padding: .2em .4em;
+  border-radius: .2em;
+  background-color: #a29bfe;
+  transition: 1s;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: #81ecec;
+  border: 2px solid #00cec9;
+} */
+
+#files{
+  display:none;
+}
+
+#file-label{
+  background-color: #f9f9f9;
+  display: inline-block;
+  margin: 5px;
+  width: 100px;
+  padding: 0.6em 1.2em;
+  border: 1px solid black;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+

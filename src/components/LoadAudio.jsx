@@ -23,9 +23,11 @@ export default function LoadAudio(props){
 
   return (
     <>
-      <div>
+      {/* <div>
         <input id='load-file' type="file" onClick={handleClick} onChange={loadFromFile}/>
-      </div>
+      </div> */}
+      <input type="file" onClick={handleClick} onChange={loadFromFile} id="files"/>
+      <label id='file-label' for="files">Upload File</label>
     </>
   );
 }
