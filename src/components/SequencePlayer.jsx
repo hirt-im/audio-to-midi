@@ -1,25 +1,37 @@
 import { useState } from "react";
+import { useStore } from "../App";
 
 
 export default function SequencePlayer(props){
 
-  const [playState, setPlayState] = useState(props.player.getPlayState())
+  // const [playState, setPlayState] = useState(props.player.getPlayState())
+
+  // const playState = useStore((state) => state.playState);
+  // const playPlayer = useStore((state) => state.start);
+  // const pausePlayer = useStore((state) => state.pause);
+
+  const {playState, playPlayer, pausePlayer } = useStore()
+
 
   function handleClick(){
     switch (props.player.getPlayState()) {
       case 'stopped':
         props.player.start(props.vis.noteSequence);
-        setPlayState('started');
+        playPlayer();
+        console.log(playState);
         break;
 
       case 'paused':
         props.player.resume();
-        setPlayState('started');
+        playPlayer();
+        console.log(playState);
+
         break;
 
       case 'started':
         props.player.pause();
-        setPlayState('paused');
+        pausePlayer();
+        console.log(playState);
     }
   }
 
