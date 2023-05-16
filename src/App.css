@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .logo {
@@ -60,8 +62,11 @@
 
 #visualizers{
   background-color: rgb(10, 10, 10);
-  min-width: 100%;
-  max-width: 100%;
+  /* min-width: 100%;
+  max-width: 100%; */
+  /* width: 75vw; */
+
+  width: 100%;
 }
 
 .waterfall-piano{
@@ -145,8 +150,9 @@ input[type=file]::file-selector-button:hover {
 #controls{
   display: flex;
   justify-content: center;
+  gap: 10px;
 }
 
 #container{
-  width: 100%;
+  width: 75vw;
 }
