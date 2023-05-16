@@ -13,6 +13,7 @@ import * as mm from '@magenta/music/es6';
 // const BLACK_KEY_COLOR = 'rgba(0, 204, 197, 0.79)';
 const WHITE_KEY_COLOR = '195, 219, 222';
 const ACTIVE_KEY_COLOR = '255, 215, 18';
+// const ACTIVE_KEY_COLOR = '81, 207, 252';
 
 
 const WHITE_KEY_FILL = '8, 41, 64';
