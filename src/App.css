@@ -153,6 +153,14 @@ input[type=file]::file-selector-button:hover {
   justify-content: center;
 }
 
+.save-button{
+  height: 100%;
+  font-weight: 500;
+  font-size: 1.2em;
+  padding: 0.6em 1.2em;
+}
+
+
 #file-label:hover{
   border-color: #646cff;
 }
