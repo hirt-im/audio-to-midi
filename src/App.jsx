@@ -8,14 +8,6 @@ import colorBlackKeys from './components/colorBlackKeys';
 import classifySharps from './components/classifySharps';
 import TempoControl from './components/TempoControl';
 import * as mm from '@magenta/music/es6';
-import { create } from 'zustand';
-
-export const useStore = create((set) => ({
-  playState: 'stopped',
-  playPlayer: () => set({ playState: 'started' }),
-  pausePlayer: () => set({ playState: 'paused'}),
-  stopPlayer: () => set({ playState: 'stopped'})
-}))
 
 
 // const BLACK_KEY_COLOR = 'rgba(0, 204, 197, 0.79)';
