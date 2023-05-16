@@ -1,10 +1,16 @@
+import { sequenceProtoToMidi } from "@magenta/music/es6";
+import saveAs from "./saveAs";
 
 
 export default function SaveMIDI(props){
 
     function handleClick(){
         console.log('saved');
-        // saveAs(new File([mm.sequenceProtoToMidi(props.ns)], 'AudioToMIDI.mid'));
+        let midi = sequenceProtoToMidi(props.ns);
+        console.log(midi);
+        let file1 = new File([sequenceProtoToMidi(props.ns)], 'AudioToMIDI.mid');
+        console.log(file1);
+        // saveAs(new File([sequenceProtoToMidi(props.ns)], 'AudioToMIDI.mid'));
     }
 
     return(
