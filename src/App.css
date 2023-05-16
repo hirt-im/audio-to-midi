@@ -60,7 +60,7 @@
   min-width: 100%;
   max-width: 100%; 
   cursor: url('./assets/cursor.png'), pointer;
-  border-radius: 15px;
+  /* border-radius: 15px; */
 
   /* border-bottom: 1px solid white; */
 
@@ -162,7 +162,11 @@ input[type=file]::file-selector-button:hover {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding-bottom: 5px;
+  padding: 5px;
+  border-top-left-radius: 15px;  
+  border-top-right-radius: 15px;
+
+  background-color: rgb(23, 141, 156);
 }
 
 #container{
