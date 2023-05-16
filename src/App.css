@@ -204,3 +204,9 @@ input[type=range]{
   text-align: left;
   font-size: 1.5em;
 }
+
+#made-with{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

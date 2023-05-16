@@ -9,6 +9,16 @@ export default function Description(){
             <br></br><br></br>
             Please be patient after selecting your file. The longer the audio, the longer it takes to process!
             </p>
+            <br></br><br></br>
+
+            <div id='made-with'>
+                Made with 
+                <a href='https://magenta.tensorflow.org/'>
+                    <img src="https://magenta.tensorflow.org/assets/magenta-logo.png" height='50' 
+                    style={{ verticalAlign: 'center'}}>
+                    </img>
+                </a>
+            </div>
         </div>
     );
 }
