@@ -8,6 +8,7 @@ import colorBlackKeys from './components/colorBlackKeys';
 import classifySharps from './components/classifySharps';
 import TempoControl from './components/TempoControl';
 import * as mm from '@magenta/music/es6';
+import SaveMIDI from './components/SaveMIDI';
 
 
 // const BLACK_KEY_COLOR = 'rgba(0, 204, 197, 0.79)';
@@ -126,6 +127,7 @@ function App() {
         <LoadAudio setNoteSequence={setNoteSequence} />
         <SequencePlayer vis={vis} ns={noteSequence} player={player} />
         <TempoControl player={player} />
+        <SaveMIDI ns={noteSequence} />
       </div>
       <div id='visualizers'>
         <canvas onClick={changeTime} id='vis2'></canvas>
