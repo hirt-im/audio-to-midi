@@ -1,6 +1,7 @@
 1. Fix OAF initializing multiple times 
 2. Fix notes being misaligned to piano sometimes.. wtf
 3. Seeking by clicking isn't perfectly aligned
+4. Fix styling of everything (try changing size of the window)
 
 
 Feature ideas:

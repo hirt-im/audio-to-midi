@@ -211,7 +211,8 @@ input[type=range]{
 }
 
 #container{
-  width: 75vw;
+  /* width: 75vw; */
+  width: clamp(700px, 75vw, 2000px);
 }
 
 #tempo-container{
@@ -257,6 +258,8 @@ input[type=range]{
   left: 50%; 
   transform: translate(-50%, -50%);
   width: 55%;
+  width: clamp(500px, 55%, 1000px);
+
   
   color: white;
 }
