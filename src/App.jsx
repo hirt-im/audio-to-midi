@@ -10,6 +10,12 @@ import TempoControl from './components/TempoControl';
 import * as mm from '@magenta/music/es6';
 import SaveMIDI from './components/SaveMIDI';
 import Description from './components/Description';
+import { create } from 'zustand'
+
+export const uesStore = create((set) => ({
+  loading: false,
+  setLoading: () => set((state) => ({ loading: true}))
+}))
 
 
 // const BLACK_KEY_COLOR = 'rgba(0, 204, 197, 0.79)';

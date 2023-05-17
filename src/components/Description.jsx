@@ -1,4 +1,16 @@
+import { uesStore } from "../App";
+
 export default function Description(){
+
+    const {loading} = uesStore();
+    if(loading){
+        return(
+            <div id='description'>
+                <img src='./assets/robot.png'></img>
+                Processing...
+            </div>
+        );
+    }
     return(
         <div id='description'>
             <p>Upload an audio file and have it converted into MIDI!

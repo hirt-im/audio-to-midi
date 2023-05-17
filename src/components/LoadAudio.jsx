@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import * as mm from "@magenta/music/es6";
+import { uesStore } from '../App';
 
 
 
 export default function LoadAudio(props){
+  const {setLoading} = uesStore();
 
   const [loaded, setLoaded] = useState(false);
 
@@ -11,6 +13,7 @@ export default function LoadAudio(props){
   OAF.initialize();
 
   function loadFromFile(e){
+    setLoading();
     OAF.transcribeFromAudioFile(e.target.files[0]).then((ns) => {
       props.setNoteSequence(ns);
     })
