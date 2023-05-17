@@ -37,6 +37,6 @@ let icon =
   </svg>
 
   return (
-      <button id='play-pause-button' onClick={handleClick}>{icon}</button>
+      <button disabled={(props.ns == null ? true : false)} id='play-pause-button' onClick={handleClick}>{icon}</button>
     );
 }
