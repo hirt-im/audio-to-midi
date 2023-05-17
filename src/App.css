@@ -255,15 +255,13 @@ input[type=range]{
 }
 
 #description{
-  position: absolute;
+  color: white;
+  position: relative;
   top: 50%;  
   left: 50%; 
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -60%);
   width: 55%;
-  width: clamp(500px, 55%, 1000px);
-
-  
-  color: white;
+  width: clamp(500px, 65%, 1000px);
 }
 
 #description > p{
