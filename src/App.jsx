@@ -15,6 +15,7 @@ import { create } from 'zustand'
 export const uesStore = create((set) => ({
   loading: false,
   setLoading: () => set({ loading: true})
+
 }))
 
 
@@ -39,49 +40,52 @@ const SHARP_NOTES = [70,73,75,78,80,82,85,87,90,92,
                      37,34,32,30,27,25,22
                     ];
 
+const BLANK_NS = {
+  notes: [
+    
+  ],
+  totalTime: 1
+}
+
 
 // mm.Player.tone.Transport.now() gets current time, but it doesn't start/stop when Player starts/stops
 // also try mm.Player.tone.Transport.seconds
 
 function App() {
   const [noteSequence, setNoteSequence] = useState(null);
-  const [vis, setVis] = useState();
-  const [vis2, setVis2] = useState();
 
 
-  function visualize(){
-    let visualizer = new WaterfallSVGVisualizer(
-      noteSequence, 
-      document.getElementById('vis1'),
-      {
-        noteRGB: WHITE_KEY_COLOR,
-        activeNoteRGB: ACTIVE_KEY_COLOR,
-        noteHeight: 50,
-        pixelsPerTimeStep: 200,
-        noteSpacing: 10,
-        whiteNoteWidth: WHITE_WIDTH,
-        blackNoteWidth: BLACK_WIDTH
-        // showOnlyOctavesUsed: true
-      }
-    );
-   
-    let visualizer2 = new PianoRollCanvasVisualizer(noteSequence, document.getElementById('vis2'),
-      {
-        noteRGB: WHITE_KEY_COLOR,
-        activeNoteRGB: ACTIVE_KEY_COLOR
-      }
-    );
+  let vis;
+  let vis2;
+  if(noteSequence != null){
+      vis = new WaterfallSVGVisualizer(
+        noteSequence, 
+        document.getElementById('vis1'),
+        {
+          noteRGB: WHITE_KEY_COLOR,
+          activeNoteRGB: ACTIVE_KEY_COLOR,
+          noteHeight: 50,
+          pixelsPerTimeStep: 200,
+          noteSpacing: 10,
+          whiteNoteWidth: WHITE_WIDTH,
+          blackNoteWidth: BLACK_WIDTH
+          // showOnlyOctavesUsed: true
+        }
+      );
+     
+      vis2 = new PianoRollCanvasVisualizer(noteSequence, document.getElementById('vis2'),
+        {
+          noteRGB: WHITE_KEY_COLOR,
+          activeNoteRGB: ACTIVE_KEY_COLOR
+        }
+      );
+  
+      classifySharps(vis, BLACK_WIDTH);
 
-    classifySharps(visualizer, BLACK_WIDTH);
-    setVis(visualizer);
-    setVis2(visualizer2);
-  }
-
-
-  useEffect(()=>{
-    if(noteSequence === null){return;}
-    visualize();
-  }, [noteSequence])
+    }
+  
+  
+  
 
 
 
@@ -128,7 +132,7 @@ function App() {
     container.scrollTop = container.scrollHeight - (ratio * container.scrollHeight);
   }       
   
-
+  
   return (
     <div id='container'>
       <div id='controls'>
