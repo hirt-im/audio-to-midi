@@ -60,7 +60,8 @@ function App() {
         pixelsPerTimeStep: 200,
         noteSpacing: 10,
         whiteNoteWidth: WHITE_WIDTH,
-        blackNoteWidth: BLACK_WIDTH
+        blackNoteWidth: BLACK_WIDTH,
+        showOnlyOctavesUsed: true
       }
     );
    
