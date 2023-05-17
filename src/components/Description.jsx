@@ -8,7 +8,7 @@ export default function Description(){
         return(
             <div id='description' class='loading'>
                 <img src={robot} />
-                Processing...
+                <div id='processing'>Processing</div>
             </div>
         );
     }
