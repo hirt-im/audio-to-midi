@@ -151,6 +151,16 @@ input[type=file]::file-selector-button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
+
+}
+
+#file-label:hover, .save-button:hover{
+  background-color: rgb(57, 205, 224);
+  color: white;
+  border-color: transparent;
 }
 
 .save-button{
@@ -158,11 +168,8 @@ input[type=file]::file-selector-button:hover {
   font-weight: 500;
   font-size: 1.2em;
   padding: 0.6em 1.2em;
-}
-
-
-#file-label:hover{
-  border-color: #646cff;
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 #controls{
