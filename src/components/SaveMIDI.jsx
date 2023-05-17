@@ -1,18 +1,32 @@
 import { sequenceProtoToMidi } from "@magenta/music/es6";
-import saveAs from "./saveAs";
 
 
 export default function SaveMIDI(props){
 
     function handleClick(){
-        // console.log('saved');
-        // let midi = sequenceProtoToMidi(props.ns);
-        // console.log(midi);
-        // let file1 = new File([sequenceProtoToMidi(props.ns)], 'AudioToMIDI.mid');
-        // console.log(file1);
-        // saveAs(new File([sequenceProtoToMidi(props.ns)], 'AudioToMIDI.mid'));
+        // Convert note sequence to a MIDI file
+        const midiData = sequenceProtoToMidi(props.ns);
 
-        
+        // Create a Uint8Array from the MIDI data
+        const uintArray = new Uint8Array(midiData);
+
+        // Create a Blob from the Uint8Array
+        const blob = new Blob([uintArray], { type: 'audio/midi' });
+
+        // Create a URL for the Blob
+        const url = URL.createObjectURL(blob);
+
+        // Create a download link for the MIDI file
+        const downloadLink = document.createElement('a');
+        downloadLink.href = url;
+        downloadLink.download = 'output.mid';
+        downloadLink.innerHTML = 'Download MIDI file';
+
+        // Append the download link to the document
+        document.body.appendChild(downloadLink);
+
+        // Click the download link to trigger the download
+        downloadLink.click();
     }
 
     return(
