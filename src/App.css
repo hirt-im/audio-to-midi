@@ -164,6 +164,11 @@ input[type=file]::file-selector-button:hover {
   border-color: transparent;
 }
 
+.save-button:disabled:hover{
+  background-color: rgb(57, 205, 224);
+  color: red;
+}
+
 .save-button{
   height: 100%;
   font-weight: 500;
