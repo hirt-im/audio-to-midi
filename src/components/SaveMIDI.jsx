@@ -18,6 +18,7 @@ export default function SaveMIDI(props){
 
         // Create a download link for the MIDI file
         const downloadLink = document.createElement('a');
+        downloadLink.style.display = 'none';
         downloadLink.href = url;
         downloadLink.download = 'output.mid';
         downloadLink.innerHTML = 'Download MIDI file';
