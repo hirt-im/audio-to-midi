@@ -5,7 +5,7 @@ export default function Description(){
             <br></br><br></br>
             The neural network model used was trained on solo piano performances,
             so those are what will give you the best results, but feel free 
-            to upload audio of other instruments to see what happens! 😃
+            to upload audio of other instruments to see what happens! 😋
             <br></br><br></br>
             Please be patient after selecting your file. The longer the audio, the longer it takes to process!
             </p>
