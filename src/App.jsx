@@ -14,7 +14,7 @@ import { create } from 'zustand'
 
 export const uesStore = create((set) => ({
   loading: false,
-  setLoading: () => set((state) => ({ loading: true}))
+  setLoading: () => set({ loading: true})
 }))
 
 
@@ -140,8 +140,10 @@ function App() {
       </div>
       <div id='visualizers'>
         <canvas onClick={changeTime} id='vis2'></canvas>
-        <div id='vis1'>
-          {(noteSequence == null ? <Description /> : null)}
+        <div id='vis1-container'>
+          <div id='vis1'>
+            {(noteSequence == null ? <Description /> : null)}
+          </div>
         </div>
       </div> 
     </div>

@@ -44,12 +44,19 @@
 }
 
 #vis1{
+  max-width: 95%;
+}
+
+
+#vis1-container{
   height: 600px;
   background-color: rgb(10, 10, 10);
   /* background-color: gray; */
   border-radius: 15px;
   /* min-width: 100%; */
   max-width: 100%; 
+  display: flex;
+  justify-content: center;
   /* text-align: center; */
 
 }
@@ -89,6 +96,10 @@
   /* min-width: 100%; */
   max-width: 100%;
 
+}
+
+.waterfall-piano svg{
+  width: 20%;
 }
 
 rect{
