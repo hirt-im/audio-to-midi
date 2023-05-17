@@ -7,15 +7,18 @@ export default function Description(){
 
     if(loading){
         return(
-            <div id='description' class='loading'>
-                <img src={robot} />
-                <div id='processing'>Processing...</div>
+            <div class='description' id='loading'>
+                <div id='processing'>
+                    <img src={robot} />
+                    <div>Processing...</div>
+                </div>
+                
             </div>
         );
     }
 
     return(
-        <div id='description'>
+        <div class='description'>
             <p>Upload an audio file and have it converted into MIDI!
             <br></br><br></br>
             Works best on solo piano performances, but feel free 
