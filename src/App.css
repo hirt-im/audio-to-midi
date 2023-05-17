@@ -224,7 +224,9 @@ input[type=range]{
 }
 
 #play-pause-button{
-  height: 6.45vh;
+  height: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
   border-radius: 8px;
   transition: background-color 0.5s ease;
   border-color: transparent;
