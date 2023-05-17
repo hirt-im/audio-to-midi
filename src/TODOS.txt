@@ -2,6 +2,7 @@
 2. Fix notes being misaligned to piano sometimes.. wtf
 3. Seeking by clicking isn't perfectly aligned
 4. Fix styling 
+5. Fix it not working on mobile?
 
 Feature ideas:
 Looping, click and drag over vis2 to highlight section and loop over it
