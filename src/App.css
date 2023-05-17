@@ -151,6 +151,7 @@ input[type=file]::file-selector-button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
 
   transition: background-color 0.5s ease;
   transition: color 0.5s ease;
@@ -170,6 +171,7 @@ input[type=file]::file-selector-button:hover {
   padding: 0.6em 1.2em;
   transition: background-color 0.5s ease;
   transition: color 0.5s ease;
+  background-color: white;
 }
 
 #controls{
@@ -207,6 +209,7 @@ input[type=range]{
   border-radius: 15px;
   transition: background-color 0.5s ease;
   border-color: transparent;
+  background-color: white;
 
 }
 
