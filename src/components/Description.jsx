@@ -11,7 +11,8 @@ export default function Description(){
             <br></br><br></br>
 
             <div id='made-with'>
-                Made with 
+                Made with
+                {/* &nbsp; <a href="https://g.co/magenta/onsets-frames"> Onsets and Frames</a>&nbsp; from */}
                 <a href='https://magenta.tensorflow.org/'>
                     <img src="https://magenta.tensorflow.org/assets/magenta-logo.png" height='50' 
                     style={{ verticalAlign: 'center'}}>

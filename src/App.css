@@ -265,3 +265,24 @@ input[type=range]{
   align-items: center;
   gap: 10px;
 }
+/* 
+a:link{
+  color: rgb(57, 205, 224);
+}
+
+a:link:visited{
+  color: rgb(57, 205, 224);
+} */
+
+/* a:link:hover{
+  color: white;
+} */
+
+a{
+  color: rgb(57, 205, 224);
+  text-decoration: none;
+}
+
+a:hover{
+  color: white;
+}
