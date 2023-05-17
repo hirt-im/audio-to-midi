@@ -54,7 +54,6 @@ const BLANK_NS = {
 function App() {
   const [noteSequence, setNoteSequence] = useState(null);
 
-
   let vis;
   let vis2;
   if(noteSequence != null){
@@ -72,22 +71,14 @@ function App() {
           // showOnlyOctavesUsed: true
         }
       );
-     
       vis2 = new PianoRollCanvasVisualizer(noteSequence, document.getElementById('vis2'),
         {
           noteRGB: WHITE_KEY_COLOR,
           activeNoteRGB: ACTIVE_KEY_COLOR
         }
       );
-  
       classifySharps(vis, BLACK_WIDTH);
-
     }
-  
-  
-  
-
-
 
   const player = new SoundFontPlayer(
     'https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
@@ -131,7 +122,7 @@ function App() {
     let container = document.getElementsByClassName('waterfall-notes-container')[0];
     container.scrollTop = container.scrollHeight - (ratio * container.scrollHeight);
   }       
-  
+
   
   return (
     <div id='container'>
@@ -145,9 +136,10 @@ function App() {
       </div>
       <div id='visualizers'>
         <canvas onClick={changeTime} id='vis2'></canvas>
+        
         <div id='vis1-container'>
           <div id='vis1'>
-            {(noteSequence == null ? <Description /> : null)}
+            <Description />
           </div>
         </div>
       </div> 

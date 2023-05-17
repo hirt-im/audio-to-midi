@@ -12,7 +12,6 @@ export default function Description(){
                     <img src={robot} />
                     <div>Processing...</div>
                 </div>
-                
             </div>
         );
     }
