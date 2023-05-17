@@ -210,8 +210,8 @@ input[type=range]{
 }
 
 #play-pause-button{
-  height: 7vh;
-  border-radius: 15px;
+  height: 6.9vh;
+  border-radius: 8px;
   transition: background-color 0.5s ease;
   border-color: transparent;
   background-color: white;
