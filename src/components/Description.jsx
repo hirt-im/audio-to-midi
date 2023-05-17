@@ -1,12 +1,13 @@
 import { uesStore } from "../App";
+import robot from '../assets/robot.png';
 
 export default function Description(){
 
     const {loading} = uesStore();
-    if(loading){
+    if(!loading){
         return(
-            <div id='description'>
-                <img src='./assets/robot.png'></img>
+            <div id='description' class='loading'>
+                <img src={robot} />
                 Processing...
             </div>
         );

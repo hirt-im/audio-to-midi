@@ -286,3 +286,11 @@ a{
 a:hover{
   color: white;
 }
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  gap: 5px;
+}
