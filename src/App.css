@@ -299,7 +299,7 @@ a:hover{
   font-size: 1.2em;
 }
 
-#processing:after {
+/* #processing:after {
   content: '.';
   animation: dots 2.5s steps(5, end) infinite;
 }
@@ -323,4 +323,4 @@ a:hover{
     text-shadow:
       .25em 0 0 white,
       .5em 0 0 white;}
-}
+} */

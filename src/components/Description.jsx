@@ -4,14 +4,16 @@ import robot from '../assets/robot.png';
 export default function Description(){
 
     const {loading} = uesStore();
-    if(!loading){
+
+    if(loading){
         return(
             <div id='description' class='loading'>
                 <img src={robot} />
-                <div id='processing'>Processing</div>
+                <div id='processing'>Processing...</div>
             </div>
         );
     }
+
     return(
         <div id='description'>
             <p>Upload an audio file and have it converted into MIDI!
