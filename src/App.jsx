@@ -56,6 +56,7 @@ function App() {
 
   let vis;
   let vis2;
+  let player;
   if(noteSequence != null){
       vis = new WaterfallSVGVisualizer(
         noteSequence, 
@@ -71,40 +72,44 @@ function App() {
           // showOnlyOctavesUsed: true
         }
       );
+      classifySharps(vis, BLACK_WIDTH);
+
       vis2 = new PianoRollCanvasVisualizer(noteSequence, document.getElementById('vis2'),
         {
           noteRGB: WHITE_KEY_COLOR,
           activeNoteRGB: ACTIVE_KEY_COLOR
         }
       );
-      classifySharps(vis, BLACK_WIDTH);
+
+      player = new SoundFontPlayer(
+        'https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
+        undefined,undefined,undefined,
+        {
+          run: (note = NoteSequence.Note) => {
+            vis.redraw(note, true);
+            vis2.redraw(note,true);
+
+            // draw vertical line where active note is on vis2
+            let canvas = vis2.ctx.canvas;
+            let x = (note.startTime / noteSequence.totalTime) * canvas.width;
+            vis2.ctx.strokeStyle = 'white';
+            vis2.ctx.beginPath();
+            vis2.ctx.moveTo(x, 0);
+            vis2.ctx.lineTo(x, canvas.height);
+            vis2.ctx.stroke();
+          }
+        }
+      );
+      player.loadSamples(noteSequence);
     }
 
-  const player = new SoundFontPlayer(
-    'https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
-    undefined,undefined,undefined,
-    {
-      run: (note = NoteSequence.Note) => {
-        vis.redraw(note, true);
-        vis2.redraw(note,true);
-
-        // draw vertical line where active note is on vis2
-        let canvas = vis2.ctx.canvas;
-        let x = (note.startTime / noteSequence.totalTime) * canvas.width;
-        vis2.ctx.strokeStyle = 'white';
-        vis2.ctx.beginPath();
-        vis2.ctx.moveTo(x, 0);
-        vis2.ctx.lineTo(x, canvas.height);
-        vis2.ctx.stroke();
-      }
-    }
-  );
 
   function changeTime(e){
-    if(!player.isPlaying()){
+    let playState = player.getPlayState();
+    if(playState === 'stopped'){
       player.start(noteSequence);
     }
-    else if(player.getPlayState() === 'paused'){
+    else if(playState === 'paused'){
       player.resume();
     }
 
