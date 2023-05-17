@@ -160,6 +160,8 @@ input[type=file]::file-selector-button:hover {
 
 #file-label:hover, .save-button:hover:enabled{
   background-color: rgb(57, 205, 224);
+  transition: background-color 0.5s ease;
+
   color: white;
   border-color: transparent;
 }
