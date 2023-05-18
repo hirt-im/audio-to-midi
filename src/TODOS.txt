@@ -1,8 +1,8 @@
-1. Fix OAF initializing multiple times 
+1. Show 'Processing...' page when loading another file
 2. Fix notes being misaligned to piano sometimes.. wtf
 3. Seeking by clicking isn't perfectly aligned
-4. Fix styling 
-5. Fix it not working on mobile?
+4. Improve styling 
+5. Create screen for mobile saying it is not supported
 
 Feature ideas:
 Looping, click and drag over vis2 to highlight section and loop over it
