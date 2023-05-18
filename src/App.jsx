@@ -19,6 +19,7 @@ export const useStore = create((set) => ({
   setLoading: () => set({loading: true}),
   deLoad: () => set({loading: false})
 }))
+
 const WHITE_KEY_COLOR = '195, 219, 222';
 const ACTIVE_KEY_COLOR = '255, 215, 18';
 const WHITE_WIDTH = Math.round(window.innerWidth / 65);
