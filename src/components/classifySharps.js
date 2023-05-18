@@ -1,4 +1,3 @@
-
 export default function classifySharps(vis, blackWidth){
     let rects = vis.svg.children;
     for (let i = 0; i < rects.length; i++){

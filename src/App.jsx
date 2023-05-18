@@ -38,14 +38,12 @@ function App() {
       noteSequence, 
       document.getElementById('vis1'),
       {
-        // noteRGB: WHITE_KEY_COLOR,
         activeNoteRGB: ACTIVE_KEY_COLOR,
         noteHeight: 50,
         pixelsPerTimeStep: 200,
         noteSpacing: 10,
         whiteNoteWidth: WHITE_WIDTH,
         blackNoteWidth: BLACK_WIDTH
-        // showOnlyOctavesUsed: true
       }
     );
     classifySharps(vis, BLACK_WIDTH);

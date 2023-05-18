@@ -51,14 +51,12 @@
 #vis1-container{
   height: 600px;
   background-color: rgb(10, 10, 10);
-  /* background-color: gray; */
   border-radius: 15px;
   /* min-width: 100%; */
   max-width: 100%; 
   display: flex;
   justify-content: center;
   /* text-align: center; */
-
 }
 
 #vis2{
@@ -68,34 +66,23 @@
   max-width: 100%; 
   cursor: url('./assets/cursor.png'), pointer;
   /* border-radius: 15px; */
-
   /* border-bottom: 1px solid white; */
-
 }
 
 #visualizers{
   background-color: rgb(10, 10, 10);
   border-radius: 15px;
-
   /* min-width: 100%;*/
   max-width: 100%;
-  /* width: 75vw; */
-
-  /* width: 100%; */
 }
 
 .waterfall-piano{
-  /* min-width: 100%; */
-  /* width: 100%; */
-  /* ^these mess up piano*/
-
   max-width: 100%;
 }
 
 .waterfall-notes-container{
   /* min-width: 100%; */
   max-width: 100%;
-
 }
 
 .waterfall-piano svg{
@@ -127,23 +114,6 @@ rect.note.sharp:not(.active){
   stroke-width: .6px;
   stroke: white;
 }
-
-/* rect.note.sharp.active{
-  fill: pink;
-} */
-
-/* input[type=file]::file-selector-button {
-  border: 2px solid #6c5ce7;
-  padding: .2em .4em;
-  border-radius: .2em;
-  background-color: #a29bfe;
-  transition: 1s;
-}
-
-input[type=file]::file-selector-button:hover {
-  background-color: #81ecec;
-  border: 2px solid #00cec9;
-} */
 
 #files{
   display:none;
