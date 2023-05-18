@@ -1,13 +1,13 @@
 import LoadAudio from './components/LoadAudio'
 import './App.css'
-import { useState, useEffect } from 'react'
-import PlayBackRate from './components/TempoControl';
-import { WaterfallSVGVisualizer, NoteSequence, SoundFontPlayer, PianoRollCanvasVisualizer } from '@magenta/music/es6';
+import { useState } from 'react'
+import { WaterfallSVGVisualizer, 
+         NoteSequence, 
+         SoundFontPlayer, 
+         PianoRollCanvasVisualizer } from '@magenta/music/es6';
 import SequencePlayer from './components/SequencePlayer';
-import colorBlackKeys from './components/colorBlackKeys';
 import classifySharps from './components/classifySharps';
 import TempoControl from './components/TempoControl';
-import * as mm from '@magenta/music/es6';
 import SaveMIDI from './components/SaveMIDI';
 import Description from './components/Description';
 import { create } from 'zustand'
