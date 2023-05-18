@@ -20,8 +20,8 @@ export const useStore = create((set) => ({
   deLoad: () => set({loading: false})
 }))
 
-const WHITE_KEY_COLOR = '195, 219, 222';
 const ACTIVE_KEY_COLOR = '255, 201, 25';
+const VIS2_KEY_COLOR = '222, 222, 222';
 const WHITE_WIDTH = Math.round(window.innerWidth / 85);
 const BLACK_WIDTH = Math.round(WHITE_WIDTH * (5 / 9));
 
@@ -38,7 +38,7 @@ function App() {
       noteSequence, 
       document.getElementById('vis1'),
       {
-        noteRGB: WHITE_KEY_COLOR,
+        // noteRGB: WHITE_KEY_COLOR,
         activeNoteRGB: ACTIVE_KEY_COLOR,
         noteHeight: 50,
         pixelsPerTimeStep: 200,
@@ -54,7 +54,7 @@ function App() {
       noteSequence, 
       document.getElementById('vis2'),
       {
-        noteRGB: WHITE_KEY_COLOR,
+        noteRGB: VIS2_KEY_COLOR,
         activeNoteRGB: ACTIVE_KEY_COLOR
       }
     );
