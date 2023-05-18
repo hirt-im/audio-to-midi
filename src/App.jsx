@@ -50,7 +50,9 @@ function App() {
     );
     classifySharps(vis, BLACK_WIDTH);
 
-    vis2 = new PianoRollCanvasVisualizer(noteSequence, document.getElementById('vis2'),
+    vis2 = new PianoRollCanvasVisualizer(
+      noteSequence, 
+      document.getElementById('vis2'),
       {
         noteRGB: WHITE_KEY_COLOR,
         activeNoteRGB: ACTIVE_KEY_COLOR
