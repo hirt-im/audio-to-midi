@@ -12,106 +12,72 @@ import SaveMIDI from './components/SaveMIDI';
 import Description from './components/Description';
 import { create } from 'zustand'
 
-export const uesStore = create((set) => ({
+
+export const useStore = create((set) => ({
   loading: false,
-  setLoading: () => set({ loading: true})
-
+  setLoading: () => set({loading: true})
 }))
-
-
-// const BLACK_KEY_COLOR = 'rgba(0, 204, 197, 0.79)';
 const WHITE_KEY_COLOR = '195, 219, 222';
 const ACTIVE_KEY_COLOR = '255, 215, 18';
-// const ACTIVE_KEY_COLOR = '81, 207, 252';
-
-
-const WHITE_KEY_FILL = '8, 41, 64';
-const BLACK_KEY_FILL = '0, 204, 197';
-const BLACK_ACTIVE = '235, 171, 52';
-const WHITE_ACTIVE = '255, 215, 18';
-
 const WHITE_WIDTH = Math.round(window.innerWidth / 65);
 const BLACK_WIDTH = Math.round(WHITE_WIDTH * (5 / 9));
 
 
-const SHARP_NOTES = [70,73,75,78,80,82,85,87,90,92,
-                     94,97,99,102,104,106,68,66,63,
-                     61,58,56,54,51,49,46,44,42,39,
-                     37,34,32,30,27,25,22
-                    ];
-
-const BLANK_NS = {
-  notes: [
-    
-  ],
-  totalTime: 1
-}
-
-
-// mm.Player.tone.Transport.now() gets current time, but it doesn't start/stop when Player starts/stops
-// also try mm.Player.tone.Transport.seconds
-
 function App() {
   const [noteSequence, setNoteSequence] = useState(null);
 
-  let vis;
-  let vis2;
-  let player;
+  let vis, vis2, player;
   if(noteSequence != null){
-      vis = new WaterfallSVGVisualizer(
-        noteSequence, 
-        document.getElementById('vis1'),
-        {
-          noteRGB: WHITE_KEY_COLOR,
-          activeNoteRGB: ACTIVE_KEY_COLOR,
-          noteHeight: 50,
-          pixelsPerTimeStep: 200,
-          noteSpacing: 10,
-          whiteNoteWidth: WHITE_WIDTH,
-          blackNoteWidth: BLACK_WIDTH
-          // showOnlyOctavesUsed: true
-        }
-      );
-      classifySharps(vis, BLACK_WIDTH);
+    vis = new WaterfallSVGVisualizer(
+      noteSequence, 
+      document.getElementById('vis1'),
+      {
+        noteRGB: WHITE_KEY_COLOR,
+        activeNoteRGB: ACTIVE_KEY_COLOR,
+        noteHeight: 50,
+        pixelsPerTimeStep: 200,
+        noteSpacing: 10,
+        whiteNoteWidth: WHITE_WIDTH,
+        blackNoteWidth: BLACK_WIDTH
+        // showOnlyOctavesUsed: true
+      }
+    );
+    classifySharps(vis, BLACK_WIDTH);
 
-      vis2 = new PianoRollCanvasVisualizer(noteSequence, document.getElementById('vis2'),
-        {
-          noteRGB: WHITE_KEY_COLOR,
-          activeNoteRGB: ACTIVE_KEY_COLOR
-        }
-      );
+    vis2 = new PianoRollCanvasVisualizer(noteSequence, document.getElementById('vis2'),
+      {
+        noteRGB: WHITE_KEY_COLOR,
+        activeNoteRGB: ACTIVE_KEY_COLOR
+      }
+    );
 
-      player = new SoundFontPlayer(
-        'https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
-        undefined,undefined,undefined,
-        {
-          run: (note = NoteSequence.Note) => {
-            vis.redraw(note, true);
-            vis2.redraw(note,true);
+    player = new SoundFontPlayer(
+      'https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus', 
+      undefined,undefined,undefined,
+      {
+        run: (note = NoteSequence.Note) => {
+          vis.redraw(note, true);
+          vis2.redraw(note,true);
 
-            // draw vertical line where active note is on vis2
-            let canvas = vis2.ctx.canvas;
-            let x = (note.startTime / noteSequence.totalTime) * canvas.width;
-            vis2.ctx.strokeStyle = 'white';
-            vis2.ctx.beginPath();
-            vis2.ctx.moveTo(x, 0);
-            vis2.ctx.lineTo(x, canvas.height);
-            vis2.ctx.stroke();
-          }
+          // draw vertical line where active note is on vis2
+          let canvas = vis2.ctx.canvas;
+          let x = (note.startTime / noteSequence.totalTime) * canvas.width;
+          vis2.ctx.strokeStyle = 'white';
+          vis2.ctx.beginPath();
+          vis2.ctx.moveTo(x, 0);
+          vis2.ctx.lineTo(x, canvas.height);
+          vis2.ctx.stroke();
         }
-      );
-      player.loadSamples(noteSequence);
-    }
+      }
+    );
+    player.loadSamples(noteSequence);
+  }
 
 
   function changeTime(e){
     let playState = player.getPlayState();
-    if(playState === 'stopped'){
-      player.start(noteSequence);
-    }
-    else if(playState === 'paused'){
-      player.resume();
-    }
+    if(playState === 'stopped'){player.start(noteSequence);}
+    else if(playState === 'paused'){player.resume();}
 
     let tempo;
     (player.desiredQPM == undefined ? tempo = 120 : tempo = player.desiredQPM);
@@ -141,7 +107,6 @@ function App() {
       </div>
       <div id='visualizers'>
         <canvas onClick={changeTime} id='vis2'></canvas>
-        
         <div id='vis1-container'>
           <div id='vis1'>
             <Description />
@@ -151,5 +116,6 @@ function App() {
     </div>
   )
 }
+
 
 export default App

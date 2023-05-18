@@ -1,9 +1,9 @@
-import { uesStore } from "../App";
+import { useStore } from "../App";
 import robot from '../assets/robot.png';
 
 export default function Description(){
 
-    const {loading} = uesStore();
+    const {loading} = useStore();
 
     if(loading){
         return(
