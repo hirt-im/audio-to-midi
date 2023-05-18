@@ -85,17 +85,19 @@ function App() {
     if(playState === 'stopped'){player.start(noteSequence);}
     else if(playState === 'paused'){player.resume();}
 
-    let tempo;
-    (player.desiredQPM == undefined ? tempo = 120 : tempo = player.desiredQPM);
-    let tempoRatio = tempo / 120;
-
+    //calculate time to seekTo using ratio of x position over total width of visualizer2
     let rect = e.target.getBoundingClientRect();
     let x = e.clientX - rect.left;
     let ratio = x / rect.width;
     let newTime = ratio * noteSequence.totalTime;
+
+    //account for altered tempo
+    let tempo;
+    (player.desiredQPM == undefined ? tempo = 120 : tempo = player.desiredQPM);
+    let tempoRatio = tempo / 120;
     player.seekTo(newTime / tempoRatio);
 
-    //scroll down visualizer1 when you seek
+    //scroll down visualizer1
     let container = document.getElementsByClassName('waterfall-notes-container')[0];
     container.scrollTop = container.scrollHeight - (ratio * container.scrollHeight);
   }       
