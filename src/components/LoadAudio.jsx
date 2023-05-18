@@ -7,7 +7,7 @@ import { useStore } from '../App';
 export default function LoadAudio(props){
   const {setLoading} = useStore();
 
-  const [loaded, setLoaded] = useState(false);
+  // const [loaded, setLoaded] = useState(false);
 
   // const OAF = new mm.OnsetsAndFrames("https://storage.googleapis.com/magentadata/js/checkpoints/transcription/onsets_frames_uni");
   // OAF.initialize();
@@ -19,7 +19,7 @@ export default function LoadAudio(props){
     props.OAF.transcribeFromAudioFile(e.target.files[0]).then((ns) => {
       props.setNoteSequence(ns);
     })
-    setLoaded(true);
+    // setLoaded(true);
   }
 
   // function handleClick(){

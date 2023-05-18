@@ -16,19 +16,21 @@ import { create } from 'zustand'
 
 export const useStore = create((set) => ({
   loading: false,
-  setLoading: () => set({loading: true})
+  setLoading: () => set({loading: true}),
+  deLoad: () => set({loading: false})
 }))
 const WHITE_KEY_COLOR = '195, 219, 222';
 const ACTIVE_KEY_COLOR = '255, 215, 18';
 const WHITE_WIDTH = Math.round(window.innerWidth / 65);
 const BLACK_WIDTH = Math.round(WHITE_WIDTH * (5 / 9));
 
+const OAF = new OnsetsAndFrames("https://storage.googleapis.com/magentadata/js/checkpoints/transcription/onsets_frames_uni");
+OAF.initialize();
+
 
 function App() {
   const [noteSequence, setNoteSequence] = useState(null);
-  const OAF = new OnsetsAndFrames("https://storage.googleapis.com/magentadata/js/checkpoints/transcription/onsets_frames_uni");
-  OAF.initialize();
-
+  
   let vis, vis2, player;
   if(noteSequence != null){
     vis = new WaterfallSVGVisualizer(
