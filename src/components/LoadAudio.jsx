@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import * as mm from "@magenta/music/es6";
-import { uesStore } from '../App';
+import { useStore } from '../App';
 
 
 
 export default function LoadAudio(props){
-  const {setLoading} = uesStore();
+  const {setLoading} = useStore();
 
   const [loaded, setLoaded] = useState(false);
 
