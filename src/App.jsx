@@ -21,7 +21,7 @@ export const useStore = create((set) => ({
 }))
 
 const WHITE_KEY_COLOR = '195, 219, 222';
-const ACTIVE_KEY_COLOR = '255, 198, 28';
+const ACTIVE_KEY_COLOR = '255, 201, 25';
 const WHITE_WIDTH = Math.round(window.innerWidth / 85);
 const BLACK_WIDTH = Math.round(WHITE_WIDTH * (5 / 9));
 
