@@ -1,5 +1,4 @@
 1. Show 'Processing...' page when loading another file
-2. Fix notes being misaligned to piano sometimes.. wtf
 3. Seeking by clicking isn't perfectly aligned
 4. Improve styling 
 5. Create screen for mobile saying it is not supported
