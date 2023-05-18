@@ -121,6 +121,7 @@ rect.note:not(.active){
 
 rect.note.sharp:not(.active){
   fill: black;
+  stroke-width: .6px;
   stroke: white;
 }
 
