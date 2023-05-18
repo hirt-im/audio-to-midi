@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { WaterfallSVGVisualizer, 
          NoteSequence, 
          SoundFontPlayer, 
-         PianoRollCanvasVisualizer } from '@magenta/music/es6';
+         PianoRollCanvasVisualizer,
+         OnsetsAndFrames } from '@magenta/music/es6';
 import SequencePlayer from './components/SequencePlayer';
 import classifySharps from './components/classifySharps';
 import TempoControl from './components/TempoControl';
@@ -25,6 +26,8 @@ const BLACK_WIDTH = Math.round(WHITE_WIDTH * (5 / 9));
 
 function App() {
   const [noteSequence, setNoteSequence] = useState(null);
+  const OAF = new OnsetsAndFrames("https://storage.googleapis.com/magentadata/js/checkpoints/transcription/onsets_frames_uni");
+  OAF.initialize();
 
   let vis, vis2, player;
   if(noteSequence != null){
@@ -98,7 +101,7 @@ function App() {
   return (
     <div id='container'>
       <div id='controls'>
-        <LoadAudio setNoteSequence={setNoteSequence} />
+        <LoadAudio OAF={OAF} setNoteSequence={setNoteSequence} />
         <div id='audio-controls'>
           <SequencePlayer vis={vis} ns={noteSequence} player={player} />
           <TempoControl player={player} />
