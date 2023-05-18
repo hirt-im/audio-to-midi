@@ -106,14 +106,16 @@ rect{
   rx: 2px;
 }
 
-rect.note{
+rect.note, rect:active, rect.active{
   rx: 4px;
   fill-opacity: 1;
+  fill: rgb(255, 198, 28);
 }
 
 rect.note.sharp{
   rx: 3px;
 }
+
 rect.note:not(.active){
   fill: white;
   stroke:black;
