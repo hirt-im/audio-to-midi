@@ -110,6 +110,7 @@ rect.note, rect:active, rect.active{
   rx: 4px;
   fill-opacity: 1;
   fill: rgb(255, 201, 25);
+  stroke: black;
 }
 
 rect.note.sharp{
