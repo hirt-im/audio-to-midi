@@ -16,8 +16,7 @@ import { create } from 'zustand'
 
 export const useStore = create((set) => ({
   loading: false,
-  setLoading: () => set({loading: true}),
-  deLoad: () => set({loading: false})
+  setLoading: () => set({loading: true})
 }))
 
 const ACTIVE_KEY_COLOR = '255, 201, 25';
