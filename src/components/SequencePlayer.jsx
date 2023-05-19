@@ -25,7 +25,7 @@ export default function SequencePlayer(props){
     );
 }
 
-const icon = <svg 
+const icon =  <svg 
                 fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" 
                 xmlns:xlink="http://www.w3.org/1999/xlink" 
                 width="25" height="25" viewBox="0 0 45.974 45.975"
@@ -36,5 +36,5 @@ const icon = <svg
                 <path d="M38.252,45.975c-2.763,0-5-2.238-5-5V5c0-2.762,2.237-5,5-5c2.762,0,5,2.238,5,5v35.975
                       C43.252,43.736,41.013,45.975,38.252,45.975z"/>
                 </g></g></g></g>
-            </svg>;
+              </svg>;
 
