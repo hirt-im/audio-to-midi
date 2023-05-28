@@ -1,17 +1,5 @@
-1. Show 'Processing...' page when loading another file
-3. Seeking by clicking isn't perfectly aligned
-4. Improve styling 
-5. Create screen for mobile saying it is not supported
+1. Seeking by clicking isn't perfectly aligned
+2. Create screen for mobile saying it is not supported
 
 Feature ideas:
 Looping, click and drag over vis2 to highlight section and loop over it
-
-
-
-
-
-
-
-For Deployment:
-1. Set "homepage": "hirt.im/audio-to-midi/" in package.json
-2. Put "." before file paths of .js and .css files in build index.html
