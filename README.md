@@ -1,4 +1,4 @@
-# Audio to MIDI
+# [Audio to MIDI](https://hirt-im.github.io/audio-to-midi/)
 
 Upload an audio file and have the notes transcribed and displayed. Control playback with a pause/play button and a slider to change its rate. Go to a specific part of the recording by clicking on the horizontal note visualization. Save the transcription as a MIDI file for use in other software.
 
