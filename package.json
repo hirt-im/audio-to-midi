@@ -1,6 +1,5 @@
 {
   "name": "audio-to-midi",
-  "homepage": "hirt.im/audio-to-midi/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
