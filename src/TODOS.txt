@@ -6,3 +6,12 @@
 Feature ideas:
 Looping, click and drag over vis2 to highlight section and loop over it
 
+
+
+
+
+
+
+For Deployment:
+1. Set "homepage": "hirt.im/audio-to-midi/" in package.json
+2. Put "." before file paths of .js and .css files in build index.html
